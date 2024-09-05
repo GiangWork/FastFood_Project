@@ -7,34 +7,26 @@
 | 2 | Lê Gia Huy | Thành viên |
 | 3 | Trần Đức Thiện | Thành viên |
 
-## Công nghệ sử dụng 
+## Phần mềm sử dụng 
  - .Net Framework version 8.0
  - Visual studio 2022
------------------------------------------------
 
 ## Chi tiết
 <img src="https://i.imgur.com/FehXExF.jpg">
 
------------------------------------------------
 # Dự án
 
 ## Hệ thống quản lý bán thức ăn nhanh
 
 <h5>Mô tả dự án: </h5>
-<p>Ebook là một hệ thống ứng dụng đa nền tảng cho phép người dùng đọc sách điện tử (ebook) trực tuyến. Hệ thống này sẽ mở ra khả năng đọc sách trực tuyến qua giao diện web, đồng thời cung cấp một ứng dụng tiện lợi để quản lý sách một cách hiệu quả.</p>
+<p>Dự án tạo được tạo nên nhằm cung cấp nền tảng đặt hàng trực tuyến cho người dùng. sẽ cho phép khách hàng dễ dàng duyệt qua danh mục sản phẩm, thêm món ăn vào giỏ hàng, thực hiện thanh toán và theo dõi đơn hàng. Mục tiêu là nâng cao trải nghiệm mua sắm và tiện lợi, đồng thời tăng cường doanh thu cho doanh nghiệp.</p>
 
-<p>Được truy cập thông qua mạng, người dùng sẽ có cơ hội trải nghiệm không gian đọc sách độc đáo với sự tiện ích và linh hoạt mà chỉ công nghệ có thể mang lại. Không còn cần phải mang theo sách giấy, không gian sách điện tử sẽ tiết kiệm không gian và mang đến trải nghiệm đọc sách linh hoạt hơn bao giờ hết. Từ những trang sách kinh điển cho đến những tác phẩm hiện đại, mọi thứ đều có thể được truy cập và đọc một cách thuận tiện. </p>
-<p>Song song với việc đọc sách trực tuyến, ứng dụng đi kèm cung cấp một giao diện quản lý tiện lợi. Người dùng có thể tổ chức và quản lý tài liệu sách của mình theo cách riêng biệt, từ việc đánh dấu, sắp xếp theo thể loại cho đến tìm kiếm nhanh bằng cách sử dụng các tiện ích tìm kiếm thông minh. Điều này mang lại sự tiện lợi và hiệu quả cho việc tìm kiếm và sử dụng tài liệu sách, từ đó khuyến khích sự học hỏi và nghiên cứu một cách linh hoạt và hiệu quả hơn.
-</p>
+<p>Với giao diện dễ sử dụng và tích hợp đầy đủ các tính năng, khách hàng có thể đặt món ăn từ bất kỳ đâu và nhận hàng tận nơi. Hệ thống sẽ giúp tiết kiệm thời gian và nâng cao sự hài lòng của khách hàng, đồng thời tạo ra một kênh bán hàng hiệu quả cho doanh nghiệp.</p>
 
 ## Yêu cầu 
 AI: Gợi ý loại thức ăn đi chung kèm theo, chatbot, dự báo doanh thu
 
-<p>Web: MVC ASP, LinQ</p>
-<p>Ngôn ngữ: Javascript, C# </p>
-<p>Framework: Bootstrap</p>
-
-<p>Nghiệp vụ</p>
+**Nghiệp vụ Web**
 
 | STT | Nghiệp vụ | Phân công  |
 |----------------|--------------------|--------------------|
@@ -47,8 +39,7 @@ AI: Gợi ý loại thức ăn đi chung kèm theo, chatbot, dự báo doanh thu
 |  7 |  Đánh giá |  Phát  |
 
 
-<p>App: Winform </p>
-<p>Ngôn ngữ: C# </p>
+**Nghiệp vụ App**
 
 | STT | Nghiệp vụ | Phân công  |
 |----------------|--------------------|--------------------|
@@ -62,88 +53,98 @@ AI: Gợi ý loại thức ăn đi chung kèm theo, chatbot, dự báo doanh thu
 |  8  |   Báo cáo |  Thảo  |
 |  9  |  Duyệt tin tức|  Thảo  |
 
+### WEBSITE
 
-## Chức năng
-#### WEDSITE
-<p>Tìm kiếm và hiện thi thông tin sách:</p>
-<ul>
-  <li>Tìm kiếm sách theo tên, tác giả, thể loại, từ khóa, v.v.</li>
-  <li>Hiển thị thông tin chi tiết của mỗi cuốn sách, bao gồm mô tả, tác giả, đánh giá, v.v.</li>
-</ul>
-<p>
-  Giỏ hàng, Mua sách và thanh toán:
-</p>
-<ul>
-  <li>Thêm sách vào giỏ hàng </li>
-  <li>Xem lại giỏ hàng trước khi tiến hành thanh toán</li>
-   <li>Hỗ trợ nhiều phương thức thanh toán an toàn như ví điện tử, v.v.</li>
-	<li>Hiển thị thông tin chi tiết của giỏ hàng và tổng số tiền.</li>
-</ul>
-<p>
- Quản lý thông tin tài khoản 
-</p>
-<ul>
-<li>
-    Đăng ký và đăng nhập tài khoản cho người dùng.
-  </li>
-  <li>Quản lý thông tin cá nhân, mật khẩu</li>
-  <li>Hiển thị danh sách các cuốn sách mà người dùng đã mua hoặc tải về.</li>
-<li>Đơn hàng của người dùng</li>
-<li>Hiện thị sách yêu thích</li>
-<li>Thông tin tài khoản</li>
- <li>Đổi mật khẩuh</li>
-<li>Thông tin khách hàng</li>
-<li>Người dùng có thể đánh giá và viết nhận xét về các cuốn sách.</li>
-</ul>
+#### Chức năng
+
+**1. Trang Chủ:**
+
+	- Hiển thị các sản phẩm nổi bật, khuyến mãi, và ưu đãi đặc biệt.
+	- Phần tìm kiếm để khách hàng dễ dàng tìm món ăn theo tên hoặc loại món.
+  
+**2. Danh Mục Sản Phẩm:**
+
+	- Hiển thị các loại đồ ăn nhanh như hamburger, pizza, khoai tây chiên, v.v.
+	- Mỗi sản phẩm có mô tả chi tiết, hình ảnh chất lượng cao, giá cả, và tùy chọn thêm vào giỏ hàng.
+
+**3. Giỏ Hàng:**
+
+	- Khách hàng có thể xem các món đã chọn, điều chỉnh số lượng và xóa món nếu cần.
+	- Cung cấp tính năng lưu giỏ hàng để tiếp tục đặt hàng sau.
+
+**4. Quy Trình Đặt Hàng:**
+
+	- Nhập thông tin giao hàng (địa chỉ, số điện thoại).
+	- Chọn phương thức thanh toán (thẻ tín dụng, thanh toán khi giao hàng, ví điện tử).
+
+**5. Tài Khoản Người Dùng:**
+
+	- Đăng ký và đăng nhập.
+	- Quản lý đơn hàng, lịch sử đặt hàng, và thông tin cá nhân.
+
+**6. Chức Năng Tìm Kiếm và Bộ Lọc:**
+
+	- Tìm kiếm theo từ khóa, loại món ăn, giá cả.
+	- Bộ lọc để tìm món ăn theo sở thích (như món chay, món ăn ít calo).
+
+**7. Hỗ Trợ Khách Hàng:**
+
+	- Phần câu hỏi thường gặp (FAQ).
+	- Hỗ trợ trực tuyến qua chat hoặc email.
+
+**8. Tích Hợp Công Cụ Phân Tích:**
+
+	- Theo dõi lượng truy cập, hành vi người dùng, và hiệu quả của các chiến dịch tiếp thị.
+
+#### Công nghệ sử dụng
+
+**1. Frontend:**
+
+	- HTML, CSS, JavaScript
+	- Bootstrap5
+
+**2. Backend:**
+
+	- MVC ASP.
+	- Restful API.
+
+**3. Cơ Sở Dữ Liệu:**
+
+	- MSSQL.
+
+**4. Thanh Toán:**
+
+	- PayPal.
+
+**5. Bảo Mật:**
+
+	- Sử dụng chứng chỉ SSL để bảo vệ dữ liệu người dùng.
+	- Các biện pháp bảo mật như mã hóa thông tin và bảo vệ chống lại các cuộc tấn công phổ biến.
 
 #### APP
 
-<p>
-Quản lý sách
-</p>
-<ul>
-<li>Thêm và cập nhật sách</li>
-<li>Tra cứu thông tin sách</li>
-</ul>
-<p>
-Quản lý thể loại và nhà xuất bản
-</p>
-<ul>
-<li>Thêm và cập nhật </li>
-</ul>
-<p>
-Quản lý khách hàng
-</p>
-<ul>
-<li>Thêm và cập nhật </li>
-<li>Tra cứu thông tin khách hàng</li>
-</ul>
-<p>
-Quản lý tin tức
-</p>
-<ul>
-<li>Thêm và cập nhật </li>
-<li>Duyệt tin tức </li>
-</ul>
-<p>
-Quản lý nhân viên và chức vụ
-</p>
-<ul>
-<li>Thêm và cập nhật </li>
-<li> Phân quyền nhân viên tùy theo chức vụ</li>
-<li> Tra cứu thông tin của nhân viên </li></li>
-</ul>
-<p>
-Báo cáo
-</p>
-<ul>
-<li>Sách được mau nhiều nhất trong tháng </li>
-<li> Sách đuợc Thêm vào yêu thích nhiều nhất</li></li>
-</ul>
-<p>
-Thống kê</p>
-<ul>
-<li>Doanh thu </li>
-<li> Đơn hàng theo ngày theo tháng, theo năm</li></li>
-</ul>
+#### Chức năng
 
+**1. Giao diện Người dùng**
+
+	- Màn hình chính: Hiển thị danh sách các món ăn và thức uống có sẵn, cùng với giá cả và mô tả.
+	- Thanh toán: Cho phép người dùng thanh toán bằng tiền mặt hoặc thẻ tín dụng, và in hóa đơn.
+	- Quản lý đơn hàng: Xem và cập nhật trạng thái đơn hàng.
+**2. Quản lý Danh mục Sản phẩm**
+
+	- Thêm/Sửa/Xóa sản phẩm: Cho phép người quản lý thêm, sửa đổi hoặc xóa các món ăn nhanh và thức uống trong danh mục.
+	- Quản lý giá cả: Đặt và cập nhật giá cho các sản phẩm.
+**3. Quản lý Đơn hàng**
+
+	- Tạo đơn hàng: Cho phép nhân viên tạo đơn hàng mới khi khách hàng đặt hàng.
+	- Theo dõi trạng thái đơn hàng: Cập nhật và theo dõi tình trạng của đơn hàng từ lúc nhận đến khi giao hàng.
+**4. Báo cáo và Thống kê**
+
+	- Doanh thu: Xem báo cáo doanh thu theo ngày, tuần, tháng.
+	- Sản phẩm bán chạy: Xem các món ăn nhanh được bán nhiều nhất.
+
+#### Công nghệ sử dụng
+
+- Ngôn ngữ lập trình: C# (C Sharp)
+- Giao diện: Windows Forms (WinForms) - một thư viện UI cho ứng dụng desktop trên Windows.
+- Cơ sở dữ liệu: MSSQL để lưu trữ thông tin về sản phẩm, đơn hàng, và khách hàng.
