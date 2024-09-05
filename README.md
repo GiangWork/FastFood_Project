@@ -41,6 +41,7 @@ AI: Gợi ý loại thức ăn đi chung kèm theo, chatbot, dự báo doanh thu
 | 9 |  Định vị giao hàng | Thiện |
 | 10 |  AI | Giang |
 | 11 |  Các chức năng cơ bản của Admin (CRUD sản phẩm, thống kê doanh thu) | Giang |
+| 12 |  Giỏ hàng | Huy |
 
 
 **Nghiệp vụ App**
