@@ -30,13 +30,17 @@ AI: Gợi ý loại thức ăn đi chung kèm theo, chatbot, dự báo doanh thu
 
 | STT | Nghiệp vụ | Phân công  |
 |----------------|--------------------|--------------------|
-|  1  |  Tìm kiếm sách |   Thi  |
-|  2  |  Đăng nhập đăng ký |  Thảo  |
-|  3  |  Xem thông tin sách [Trang chủ, trang tin tức, trang giới thiệu, trang xem toàn bộ sách(có bộ lọc),Xem chi tiết sách, đánh giá sách]  |   Thi  |
-|  4  |  Quản lý thông tin tài khoản [Thông tin KH, thông tin tài khoản, thông tin đơn hàng đã mua, sách yêu thích] |  Phát  |
-|  5  |  Mua hàng  |  Phát  |
-|  6 |  Thanh toán |  Phát  |
-|  7 |  Đánh giá |  Phát  |
+| 1 |  Tìm kiếm sản phẩm | Huy |
+| 2 |  Đăng nhập, đăng ký | Giang |
+| 3 |  Các thông tin về sản phẩm | Huy |
+| 4 |  Quản lý thông tin tài khoản | Giang |
+| 5 |  Đơn hàng | Giang |
+| 6 |  Thanh toán | Thiện |
+| 7 |  Đánh giá | Huy |
+| 8 |  Giao diện | Thiện |
+| 9 |  Định vị giao hàng | Thiện |
+| 10 |  AI | Giang |
+| 11 |  Các chức năng cơ bản của Admin (CRUD sản phẩm, thống kê doanh thu) | Giang |
 
 
 **Nghiệp vụ App**
