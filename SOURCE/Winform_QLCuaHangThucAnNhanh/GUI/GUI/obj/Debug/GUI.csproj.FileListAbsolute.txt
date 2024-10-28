@@ -3,10 +3,15 @@ C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNha
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\GUI.pdb
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\BLL.dll
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\BLL.pdb
-C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.exe
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.pdb
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\DTO.dll
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\DTO.pdb
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csproj.Up2Date
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmLogin.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmRegister.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmMain.resources
