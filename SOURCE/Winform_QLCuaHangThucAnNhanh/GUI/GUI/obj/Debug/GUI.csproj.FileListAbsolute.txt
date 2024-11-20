@@ -15,3 +15,10 @@ C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNha
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmLogin.resources
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmRegister.resources
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmMain.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmDanhMucDoAn.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmDatMon.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmDonDatHang.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmKhachHang.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmNhanVien.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmThongKe.resources
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmTrangChu.resources
