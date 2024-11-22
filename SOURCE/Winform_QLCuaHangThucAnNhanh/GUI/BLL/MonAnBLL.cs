@@ -17,14 +17,14 @@ namespace BLL
             return dalMonAn.GetMonAn();
         }
 
-        public bool InsertMonAn(MonAnDTO monAn)
+        public bool InsertMonAn(MonAnDTO monAn, string imagePath)
         {
-            return dalMonAn.InsertMonAn(monAn);
+            return dalMonAn.InsertMonAn(monAn, imagePath);
         }
 
-        public bool UpdateMonAn(MonAnDTO monAn)
+        public bool UpdateMonAn(MonAnDTO monAn, string newImagePath = null)
         {
-            return dalMonAn.UpdateMonAn(monAn);
+            return dalMonAn.UpdateMonAn(monAn, newImagePath);
         }
 
         public bool DeleteMonAn(string maMonAn)

@@ -21,7 +21,6 @@ CREATE TABLE MonAn (
 	HinhAnh varchar(255),
 	MaLoai varchar(20),
     MoTa nvarchar(500),
-	TrangThai nvarchar(20) default N'Còn Bán',
     CONSTRAINT PK_MonAn PRIMARY KEY (MaMonAn),
 	constraint FK_MonAn_LoaiMonAn foreign key (MaLoai) references LoaiMonAn(MaLoai)
 );

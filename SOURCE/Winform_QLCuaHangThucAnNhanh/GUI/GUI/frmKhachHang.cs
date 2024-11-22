@@ -89,12 +89,12 @@ namespace GUI
 
             if (bll.xoaKhachHang(soDienThoai))
             {
-                MessageBox.Show("Xóa nhân viên thành công!");
+                MessageBox.Show("Xóa khách hàng thành công!");
                 LoadKhachHang();
             }
             else
             {
-                MessageBox.Show("Xóa nhân viên thất bại!");
+                MessageBox.Show("Xóa khách hàng thất bại!");
             }
         }
 
@@ -117,17 +117,15 @@ namespace GUI
 
         private void CustomizeDataGridViewHeaders()
         {
-            dataKH.Columns["MaKhachHang"].HeaderText = "Mã Khách Hàng";
-            dataKH.Columns["TenNhanVien"].HeaderText = "Tên Khách Hàng";
             dataKH.Columns["SoDienThoai"].HeaderText = "Số Điện Thoại";
+            dataKH.Columns["TenKhachHang"].HeaderText = "Tên Khách Hàng";
             dataKH.Columns["DiaChi"].HeaderText = "Địa Chỉ";
         }
 
         private void CustomizeDataGridViewColumnWidths()
         {
-            dataKH.Columns["MaKhachHang"].Width = 100; 
-            dataKH.Columns["TenNhanVien"].Width = 200;
             dataKH.Columns["SoDienThoai"].Width = 150;
+            dataKH.Columns["TenKhachHang"].Width = 200;
             dataKH.Columns["DiaChi"].Width = 200;
         }
 	}

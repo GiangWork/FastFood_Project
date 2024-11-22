@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using DTO;
-
+using System.IO;
 namespace DAL
 {
     public class MonAnDAL
@@ -19,39 +19,44 @@ namespace DAL
             {
                 MaMonAn = monAn.MaMonAn,
                 TenMonAn = monAn.TenMonAn,
-                GiaMonAn = (double)monAn.GiaMonAn,
+                GiaMonAn = (float)monAn.GiaMonAn,
                 HinhAnh = monAn.HinhAnh,
                 MaLoai = monAn.MaLoai,
                 MoTa = monAn.MoTa,
-                TrangThai = monAn.TrangThai
             }).ToList();
         }
 
-        public bool InsertMonAn(MonAnDTO monAn)
+        public bool InsertMonAn(MonAnDTO monAn, string imagePath)
         {
             try
             {
+                string fileName = Path.GetFileName(imagePath);
+                string savePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", fileName);
+                File.Copy(imagePath, savePath, true);
+                monAn.HinhAnh = "Images\\" + fileName;
+
                 MonAn newMonAn = new MonAn
                 {
                     MaMonAn = monAn.MaMonAn,
                     TenMonAn = monAn.TenMonAn,
-                    GiaMonAn = monAn.GiaMonAn,
-                    HinhAnh = monAn.HinhAnh,
+                    GiaMonAn = (float)monAn.GiaMonAn,
+                    HinhAnh = "Images/" + fileName,
                     MaLoai = monAn.MaLoai,
                     MoTa = monAn.MoTa,
-                    TrangThai = monAn.TrangThai
                 };
                 db.MonAns.InsertOnSubmit(newMonAn);
                 db.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                // Log the error message
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
 
-        public bool UpdateMonAn(MonAnDTO monAn)
+        public bool UpdateMonAn(MonAnDTO monAn, string newImagePath = null)
         {
             try
             {
@@ -59,17 +64,25 @@ namespace DAL
                 if (updateMonAn == null)
                     return false;
 
+                if (!string.IsNullOrEmpty(newImagePath))
+                {
+                    string fileName = Path.GetFileName(newImagePath);
+                    string savePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", fileName);
+                    File.Copy(newImagePath, savePath, true);
+                    updateMonAn.HinhAnh = "Images\\" + fileName;
+                }
+
                 updateMonAn.TenMonAn = monAn.TenMonAn;
-                updateMonAn.GiaMonAn = monAn.GiaMonAn;
-                updateMonAn.HinhAnh = monAn.HinhAnh;
+                updateMonAn.GiaMonAn = (float)monAn.GiaMonAn;
                 updateMonAn.MaLoai = monAn.MaLoai;
                 updateMonAn.MoTa = monAn.MoTa;
-                updateMonAn.TrangThai = monAn.TrangThai;
                 db.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                // Log the error message
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -82,14 +95,22 @@ namespace DAL
                 if (deleteMonAn == null)
                     return false;
 
+                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, deleteMonAn.HinhAnh);
+                if (File.Exists(imagePath))
+                {
+                    File.Delete(imagePath);
+                }
+
                 db.MonAns.DeleteOnSubmit(deleteMonAn);
                 db.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             }
+
         }
     }
 }
