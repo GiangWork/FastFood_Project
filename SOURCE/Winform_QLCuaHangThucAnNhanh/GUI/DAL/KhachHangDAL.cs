@@ -3,92 +3,140 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
 using DTO;
 
 namespace DAL
 {
-    public class KhachHangDAL
+    public class KhachHang_DAL
     {
-        private QLCuaHangKFCDataContext db;
+        private readonly QLCuaHangKFCDataContext db;
 
-        public KhachHangDAL()
+        public KhachHang_DAL()
         {
             db = new QLCuaHangKFCDataContext();
         }
 
-        public List<KhachHangDTO> LayTatCaKhachHang()
+        // Tạo mã tự động
+        private string GenerateMaKhachHang()
         {
-            var khachHangs = from kh in db.KhachHangs
-                             select new KhachHangDTO
-                             {
-                                 SoDienThoai = kh.SoDienThoai,
-                                 TenKhachHang = kh.TenKhachHang,
-                                 DiaChi = kh.DiaChi
-                             };
-            return khachHangs.ToList();
+            var lastCustomer = db.KhachHangs.OrderByDescending(kh => kh.MaKhachHang).FirstOrDefault();
+            if (lastCustomer != null)
+            {
+                int lastNumber = int.Parse(lastCustomer.MaKhachHang.Substring(2));
+                return "KH" + (lastNumber + 1).ToString("D4");
+            }
+            else
+            {
+                return "KH0001";
+            }
         }
 
-        public bool ThemKhachHang(KhachHangDTO kh)
+        // Lấy hết thông tin
+        public List<KhachHangDTO> GetAllKhachHang()
         {
+            return db.KhachHangs.Select(kh => new KhachHangDTO
+            {
+                MaKhachHang = kh.MaKhachHang,
+                TenKhachHang = kh.TenKhachHang,
+                SoDienThoai = kh.SoDienThoai,
+                DiaChi = kh.DiaChi
+            }).ToList();
+        }
+
+        // Thêm khách hàng
+        public bool AddKhachHang(KhachHangDTO kh)
+        {
+            string newMaKhachHang = GenerateMaKhachHang();
             try
             {
-                KhachHang newKh = new KhachHang
+                var newKhachHang = new KhachHang
                 {
-                    SoDienThoai = kh.SoDienThoai,
+                    MaKhachHang = newMaKhachHang,
                     TenKhachHang = kh.TenKhachHang,
+                    SoDienThoai = kh.SoDienThoai,
                     DiaChi = kh.DiaChi
                 };
 
-                db.KhachHangs.InsertOnSubmit(newKh);
+                db.KhachHangs.InsertOnSubmit(newKhachHang);
                 db.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                // Log exception (ex) here
                 return false;
             }
         }
 
-        public bool XoaKhachHang(string soDienThoai)
+        // Xóa khách hàng
+        public bool DeleteKhachHang(string maKhachHang)
         {
             try
             {
-                var kh = db.KhachHangs.SingleOrDefault(x => x.SoDienThoai == soDienThoai);
-                if (kh != null)
+                var khachHang = db.KhachHangs.SingleOrDefault(kh => kh.MaKhachHang == maKhachHang);
+                if (khachHang != null)
                 {
-                    db.KhachHangs.DeleteOnSubmit(kh);
+                    khachHang.Xoa = true; // Đánh dấu khách hàng là đã xóa (ẩn)
                     db.SubmitChanges();
                     return true;
                 }
                 return false;
             }
-            catch
+            catch (Exception ex)
             {
+                // Log exception (ex) here
                 return false;
             }
         }
 
-        public bool SuaKhachHang(KhachHangDTO kh)
+        // Cập nhật khách hàng
+        public bool UpdateKhachHang(KhachHangDTO kh)
         {
             try
             {
-                var khachHang = db.KhachHangs.SingleOrDefault(x => x.SoDienThoai == kh.SoDienThoai);
+                var khachHang = db.KhachHangs.SingleOrDefault(k => k.MaKhachHang == kh.MaKhachHang);
                 if (khachHang != null)
                 {
                     khachHang.TenKhachHang = kh.TenKhachHang;
+                    khachHang.SoDienThoai = kh.SoDienThoai;
                     khachHang.DiaChi = kh.DiaChi;
-
                     db.SubmitChanges();
                     return true;
                 }
                 return false;
             }
-            catch
+            catch (Exception ex)
             {
+                // Log exception (ex) here
                 return false;
             }
+        }
+
+        // Tìm kiếm khách hàng theo tên
+        public List<KhachHangDTO> SearchKhachHangByName(string tenKhachHang)
+        {
+            return db.KhachHangs
+                     .Where(kh => kh.TenKhachHang.Contains(tenKhachHang))
+                     .Select(kh => new KhachHangDTO
+                     {
+                         MaKhachHang = kh.MaKhachHang,
+                         TenKhachHang = kh.TenKhachHang,
+                         SoDienThoai = kh.SoDienThoai,
+                         DiaChi = kh.DiaChi
+                     }).ToList();
+        }
+
+        public List<KhachHangDTO> GetActiveKhachHang()
+        {
+            return db.KhachHangs
+             .Where(kh => kh.Xoa == false || kh.Xoa == null) // Chỉ lấy khách hàng chưa bị xóa hoặc giá trị Xoa là null
+             .Select(kh => new KhachHangDTO
+             {
+                 MaKhachHang = kh.MaKhachHang,
+                 TenKhachHang = kh.TenKhachHang,
+                 SoDienThoai = kh.SoDienThoai,
+                 DiaChi = kh.DiaChi
+             }).ToList();
         }
     }
 }

@@ -14,5 +14,6 @@ namespace DTO
         public string HinhAnh { get; set; }
         public string MaLoai { get; set; }
         public string MoTa { get; set; }
-    }
+		public bool Xoa { get; set; }
+	}
 }

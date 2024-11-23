@@ -1,40 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DAL;
 using DTO;
 
 namespace BLL
 {
-    public class KhachHangBLL
+    public class KhachHang_BLL
     {
-        private readonly KhachHangDAL dal;
+        private readonly KhachHang_DAL khachHangDAL;
 
-        public KhachHangBLL()
+        public KhachHang_BLL()
         {
-            dal = new KhachHangDAL();
+            khachHangDAL = new KhachHang_DAL();
         }
 
-        public List<KhachHangDTO> layTatCaKhachHang()
+        // Lấy hết thông tin khách hàng
+        public List<KhachHangDTO> GetAllKhachHang()
         {
-            return dal.LayTatCaKhachHang();
+                return khachHangDAL.GetAllKhachHang();
         }
 
-        public bool themKhachHang(KhachHangDTO nv)
+        // Thêm khách hàng
+        public bool AddKhachHang(KhachHangDTO kh)
         {
-            return dal.ThemKhachHang(nv);
+                return khachHangDAL.AddKhachHang(kh);
         }
 
-        public bool xoaKhachHang(string maNhanVien)
+        // Xóa khách hàng
+        public bool DeleteKhachHang(string maKhachHang)
         {
-            return dal.XoaKhachHang(maNhanVien);
+                return khachHangDAL.DeleteKhachHang(maKhachHang);
         }
 
-        public bool capNhatKhachHang(KhachHangDTO nv)
+        // Cập nhật khách hàng
+        public bool UpdateKhachHang(KhachHangDTO kh)
         {
-            return dal.SuaKhachHang(nv);
+                return khachHangDAL.UpdateKhachHang(kh);
+        }
+
+        // Tìm kiếm khách hàng theo tên
+        public List<KhachHangDTO> SearchKhachHangByName(string tenKhachHang)
+        {
+                return khachHangDAL.SearchKhachHangByName(tenKhachHang);
+            
+        }
+
+        public List<KhachHangDTO> GetActiveKhachHang()
+        {
+            return khachHangDAL.GetActiveKhachHang();
         }
     }
 }

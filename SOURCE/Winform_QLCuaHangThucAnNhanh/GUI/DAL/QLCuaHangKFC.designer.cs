@@ -196,6 +196,8 @@ namespace DAL
 		
 		private string _TrangThai;
 		
+		private System.Nullable<bool> _Xoa;
+		
 		private EntitySet<HoaDonThanhToan> _HoaDonThanhToans;
 		
     #region Extensibility Method Definitions
@@ -208,6 +210,8 @@ namespace DAL
     partial void OnSoChoNgoiChanged();
     partial void OnTrangThaiChanging(string value);
     partial void OnTrangThaiChanged();
+    partial void OnXoaChanging(System.Nullable<bool> value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public BanAn()
@@ -276,6 +280,26 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit")]
+		public System.Nullable<bool> Xoa
+		{
+			get
+			{
+				return this._Xoa;
+			}
+			set
+			{
+				if ((this._Xoa != value))
+				{
+					this.OnXoaChanging(value);
+					this.SendPropertyChanging();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BanAn_HoaDonThanhToan", Storage="_HoaDonThanhToans", ThisKey="MaBan", OtherKey="MaBan")]
 		public EntitySet<HoaDonThanhToan> HoaDonThanhToans
 		{
@@ -340,6 +364,8 @@ namespace DAL
 		
 		private string _MaLoaiNhanVien;
 		
+		private System.Nullable<bool> _Xoa;
+		
 		private EntitySet<HoaDonThanhToan> _HoaDonThanhToans;
 		
 		private EntityRef<LoaiNhanVien> _LoaiNhanVien;
@@ -360,6 +386,8 @@ namespace DAL
     partial void OnMatKhauChanged();
     partial void OnMaLoaiNhanVienChanging(string value);
     partial void OnMaLoaiNhanVienChanged();
+    partial void OnXoaChanging(System.Nullable<bool> value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public NhanVien()
@@ -489,6 +517,26 @@ namespace DAL
 					this._MaLoaiNhanVien = value;
 					this.SendPropertyChanged("MaLoaiNhanVien");
 					this.OnMaLoaiNhanVienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit")]
+		public System.Nullable<bool> Xoa
+		{
+			get
+			{
+				return this._Xoa;
+			}
+			set
+			{
+				if ((this._Xoa != value))
+				{
+					this.OnXoaChanging(value);
+					this.SendPropertyChanging();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
 				}
 			}
 		}
@@ -1129,7 +1177,7 @@ namespace DAL
 		
 		private string _MaNhanVien;
 		
-		private string _SoDienThoai;
+		private string _MaKhachHang;
 		
 		private string _MaBan;
 		
@@ -1161,8 +1209,8 @@ namespace DAL
     partial void OnMaHoaDonChanged();
     partial void OnMaNhanVienChanging(string value);
     partial void OnMaNhanVienChanged();
-    partial void OnSoDienThoaiChanging(string value);
-    partial void OnSoDienThoaiChanged();
+    partial void OnMaKhachHangChanging(string value);
+    partial void OnMaKhachHangChanged();
     partial void OnMaBanChanging(string value);
     partial void OnMaBanChanged();
     partial void OnNgayThanhToanChanging(System.Nullable<System.DateTime> value);
@@ -1231,26 +1279,26 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDienThoai", DbType="NVarChar(15)")]
-		public string SoDienThoai
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="NVarChar(15)")]
+		public string MaKhachHang
 		{
 			get
 			{
-				return this._SoDienThoai;
+				return this._MaKhachHang;
 			}
 			set
 			{
-				if ((this._SoDienThoai != value))
+				if ((this._MaKhachHang != value))
 				{
 					if (this._KhachHang.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnSoDienThoaiChanging(value);
+					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
-					this._SoDienThoai = value;
-					this.SendPropertyChanged("SoDienThoai");
-					this.OnSoDienThoaiChanged();
+					this._MaKhachHang = value;
+					this.SendPropertyChanged("MaKhachHang");
+					this.OnMaKhachHangChanged();
 				}
 			}
 		}
@@ -1473,7 +1521,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHang_HoaDonThanhToan", Storage="_KhachHang", ThisKey="SoDienThoai", OtherKey="SoDienThoai", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHang_HoaDonThanhToan", Storage="_KhachHang", ThisKey="MaKhachHang", OtherKey="MaKhachHang", IsForeignKey=true)]
 		public KhachHang KhachHang
 		{
 			get
@@ -1496,11 +1544,11 @@ namespace DAL
 					if ((value != null))
 					{
 						value.HoaDonThanhToans.Add(this);
-						this._SoDienThoai = value.SoDienThoai;
+						this._MaKhachHang = value.MaKhachHang;
 					}
 					else
 					{
-						this._SoDienThoai = default(string);
+						this._MaKhachHang = default(string);
 					}
 					this.SendPropertyChanged("KhachHang");
 				}
@@ -1558,11 +1606,15 @@ namespace DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _SoDienThoai;
+		private string _MaKhachHang;
 		
 		private string _TenKhachHang;
 		
+		private string _SoDienThoai;
+		
 		private string _DiaChi;
+		
+		private System.Nullable<bool> _Xoa;
 		
 		private EntitySet<HoaDonThanhToan> _HoaDonThanhToans;
 		
@@ -1570,12 +1622,16 @@ namespace DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnSoDienThoaiChanging(string value);
-    partial void OnSoDienThoaiChanged();
+    partial void OnMaKhachHangChanging(string value);
+    partial void OnMaKhachHangChanged();
     partial void OnTenKhachHangChanging(string value);
     partial void OnTenKhachHangChanged();
+    partial void OnSoDienThoaiChanging(string value);
+    partial void OnSoDienThoaiChanged();
     partial void OnDiaChiChanging(string value);
     partial void OnDiaChiChanged();
+    partial void OnXoaChanging(System.Nullable<bool> value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public KhachHang()
@@ -1584,22 +1640,22 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDienThoai", DbType="NVarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string SoDienThoai
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="NVarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaKhachHang
 		{
 			get
 			{
-				return this._SoDienThoai;
+				return this._MaKhachHang;
 			}
 			set
 			{
-				if ((this._SoDienThoai != value))
+				if ((this._MaKhachHang != value))
 				{
-					this.OnSoDienThoaiChanging(value);
+					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
-					this._SoDienThoai = value;
-					this.SendPropertyChanged("SoDienThoai");
-					this.OnSoDienThoaiChanged();
+					this._MaKhachHang = value;
+					this.SendPropertyChanged("MaKhachHang");
+					this.OnMaKhachHangChanged();
 				}
 			}
 		}
@@ -1624,6 +1680,26 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDienThoai", DbType="NVarChar(15)")]
+		public string SoDienThoai
+		{
+			get
+			{
+				return this._SoDienThoai;
+			}
+			set
+			{
+				if ((this._SoDienThoai != value))
+				{
+					this.OnSoDienThoaiChanging(value);
+					this.SendPropertyChanging();
+					this._SoDienThoai = value;
+					this.SendPropertyChanged("SoDienThoai");
+					this.OnSoDienThoaiChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(255)")]
 		public string DiaChi
 		{
@@ -1644,7 +1720,27 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHang_HoaDonThanhToan", Storage="_HoaDonThanhToans", ThisKey="SoDienThoai", OtherKey="SoDienThoai")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit")]
+		public System.Nullable<bool> Xoa
+		{
+			get
+			{
+				return this._Xoa;
+			}
+			set
+			{
+				if ((this._Xoa != value))
+				{
+					this.OnXoaChanging(value);
+					this.SendPropertyChanging();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHang_HoaDonThanhToan", Storage="_HoaDonThanhToans", ThisKey="MaKhachHang", OtherKey="MaKhachHang")]
 		public EntitySet<HoaDonThanhToan> HoaDonThanhToans
 		{
 			get
@@ -1700,6 +1796,8 @@ namespace DAL
 		
 		private string _TenLoai;
 		
+		private System.Nullable<bool> _Xoa;
+		
 		private EntitySet<MonAn> _MonAns;
 		
     #region Extensibility Method Definitions
@@ -1710,6 +1808,8 @@ namespace DAL
     partial void OnMaLoaiChanged();
     partial void OnTenLoaiChanging(string value);
     partial void OnTenLoaiChanged();
+    partial void OnXoaChanging(System.Nullable<bool> value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public LoaiMonAn()
@@ -1754,6 +1854,26 @@ namespace DAL
 					this._TenLoai = value;
 					this.SendPropertyChanged("TenLoai");
 					this.OnTenLoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit")]
+		public System.Nullable<bool> Xoa
+		{
+			get
+			{
+				return this._Xoa;
+			}
+			set
+			{
+				if ((this._Xoa != value))
+				{
+					this.OnXoaChanging(value);
+					this.SendPropertyChanging();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
 				}
 			}
 		}
@@ -1814,6 +1934,8 @@ namespace DAL
 		
 		private string _TenLoaiNhanVien;
 		
+		private System.Nullable<bool> _Xoa;
+		
 		private EntitySet<NhanVien> _NhanViens;
 		
     #region Extensibility Method Definitions
@@ -1824,6 +1946,8 @@ namespace DAL
     partial void OnMaLoaiNhanVienChanged();
     partial void OnTenLoaiNhanVienChanging(string value);
     partial void OnTenLoaiNhanVienChanged();
+    partial void OnXoaChanging(System.Nullable<bool> value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public LoaiNhanVien()
@@ -1868,6 +1992,26 @@ namespace DAL
 					this._TenLoaiNhanVien = value;
 					this.SendPropertyChanged("TenLoaiNhanVien");
 					this.OnTenLoaiNhanVienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit")]
+		public System.Nullable<bool> Xoa
+		{
+			get
+			{
+				return this._Xoa;
+			}
+			set
+			{
+				if ((this._Xoa != value))
+				{
+					this.OnXoaChanging(value);
+					this.SendPropertyChanging();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
 				}
 			}
 		}
@@ -1936,7 +2080,7 @@ namespace DAL
 		
 		private string _MoTa;
 		
-		private string _TrangThai;
+		private System.Nullable<bool> _Xoa;
 		
 		private EntitySet<ChiTietHoaDon> _ChiTietHoaDons;
 		
@@ -1958,8 +2102,8 @@ namespace DAL
     partial void OnMaLoaiChanged();
     partial void OnMoTaChanging(string value);
     partial void OnMoTaChanged();
-    partial void OnTrangThaiChanging(string value);
-    partial void OnTrangThaiChanged();
+    partial void OnXoaChanging(System.Nullable<bool> value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public MonAn()
@@ -2093,22 +2237,22 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrangThai", DbType="NVarChar(20)")]
-		public string TrangThai
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit")]
+		public System.Nullable<bool> Xoa
 		{
 			get
 			{
-				return this._TrangThai;
+				return this._Xoa;
 			}
 			set
 			{
-				if ((this._TrangThai != value))
+				if ((this._Xoa != value))
 				{
-					this.OnTrangThaiChanging(value);
+					this.OnXoaChanging(value);
 					this.SendPropertyChanging();
-					this._TrangThai = value;
-					this.SendPropertyChanged("TrangThai");
-					this.OnTrangThaiChanged();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
 				}
 			}
 		}
@@ -2207,6 +2351,8 @@ namespace DAL
 		
 		private string _TenChuThe;
 		
+		private System.Nullable<bool> _Xoa;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2219,6 +2365,8 @@ namespace DAL
     partial void OnSoTaiKhoanChanged();
     partial void OnTenChuTheChanging(string value);
     partial void OnTenChuTheChanged();
+    partial void OnXoaChanging(System.Nullable<bool> value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public NganHang()
@@ -2302,6 +2450,26 @@ namespace DAL
 					this._TenChuThe = value;
 					this.SendPropertyChanged("TenChuThe");
 					this.OnTenChuTheChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit")]
+		public System.Nullable<bool> Xoa
+		{
+			get
+			{
+				return this._Xoa;
+			}
+			set
+			{
+				if ((this._Xoa != value))
+				{
+					this.OnXoaChanging(value);
+					this.SendPropertyChanging();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
 				}
 			}
 		}

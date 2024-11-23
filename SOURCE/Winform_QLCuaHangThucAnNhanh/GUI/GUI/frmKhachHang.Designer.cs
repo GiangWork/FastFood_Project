@@ -45,6 +45,8 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtMaKH = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataKH)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -69,7 +71,7 @@
             // 
             // txtTenKH
             // 
-            this.txtTenKH.Location = new System.Drawing.Point(234, 113);
+            this.txtTenKH.Location = new System.Drawing.Point(245, 175);
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.Size = new System.Drawing.Size(247, 22);
             this.txtTenKH.TabIndex = 20;
@@ -78,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(54, 113);
+            this.label3.Location = new System.Drawing.Point(54, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 24);
             this.label3.TabIndex = 19;
@@ -159,7 +161,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(67, 164);
+            this.label7.Location = new System.Drawing.Point(577, 173);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(130, 24);
             this.label7.TabIndex = 21;
@@ -167,7 +169,7 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(234, 166);
+            this.txtSDT.Location = new System.Drawing.Point(751, 175);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(247, 22);
             this.txtSDT.TabIndex = 22;
@@ -210,11 +212,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm Kiếm";
             // 
+            // txtMaKH
+            // 
+            this.txtMaKH.Location = new System.Drawing.Point(245, 102);
+            this.txtMaKH.Name = "txtMaKH";
+            this.txtMaKH.Size = new System.Drawing.Size(247, 22);
+            this.txtMaKH.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(54, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 24);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Mã Khách Hàng";
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 848);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtMaKH);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.label6);
@@ -255,5 +276,7 @@
 		private System.Windows.Forms.TextBox txtTimKiem;
 		private System.Windows.Forms.Button btnLamMoi;
 		private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtMaKH;
+        private System.Windows.Forms.Label label2;
 	}
 }

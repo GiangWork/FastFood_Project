@@ -9,6 +9,7 @@ go
 CREATE TABLE LoaiMonAn (
 	MaLoai varchar(20),
 	TenLoai nvarchar(50),
+	Xoa bit,
 	constraint PK_LoaiMonAn primary key (MaLoai)
 );
 go
@@ -21,6 +22,7 @@ CREATE TABLE MonAn (
 	HinhAnh varchar(255),
 	MaLoai varchar(20),
     MoTa nvarchar(500),
+	Xoa bit,
     CONSTRAINT PK_MonAn PRIMARY KEY (MaMonAn),
 	constraint FK_MonAn_LoaiMonAn foreign key (MaLoai) references LoaiMonAn(MaLoai)
 );
@@ -30,6 +32,7 @@ go
 create table LoaiNhanVien (
 	MaLoaiNhanVien varchar(20),
 	TenLoaiNhanVien nvarchar(50),
+	Xoa bit,
 	CONSTRAINT PK_LoaiNhanVien PRIMARY KEY (MaLoaiNhanVien)
 );
 go
@@ -42,6 +45,7 @@ CREATE TABLE NhanVien (
     DiaChi nvarchar(255),
 	MatKhau varchar(255),
 	MaLoaiNhanVien varchar(20),
+	Xoa bit,
     CONSTRAINT PK_NhanVien PRIMARY KEY (MaNhanVien),
 	constraint FK_NhanVien_LoaiNhanVien foreign key (MaLoaiNhanVien) references LoaiNhanVien(MaLoaiNhanVien)
 );
@@ -52,16 +56,19 @@ CREATE TABLE BanAn (
     MaBan varchar(20),
     SoChoNgoi int,
     TrangThai nvarchar(50) CHECK (TrangThai IN (N'Trống', N'Có Khách')),
+	Xoa bit,
     CONSTRAINT PK_BanAn PRIMARY KEY (MaBan)
 );
 go
 
 -- Bảng KhachHang
 CREATE TABLE KhachHang (
-    SoDienThoai nvarchar(15),
+    MaKhachHang nvarchar(15),
     TenKhachHang nvarchar(255),
+	SoDienThoai nvarchar(15),
     DiaChi nvarchar(255),
-    CONSTRAINT PK_KhachHang PRIMARY KEY (SoDienThoai)
+	Xoa bit,
+    CONSTRAINT PK_KhachHang PRIMARY KEY (MaKhachHang)
 );
 go
 
@@ -69,7 +76,7 @@ go
 CREATE TABLE HoaDonThanhToan (
     MaHoaDon varchar(20),
     MaNhanVien varchar(20) CONSTRAINT FK_HoaDonThanhToan_NhanVien REFERENCES NhanVien(MaNhanVien),
-    SoDienThoai nvarchar(15) CONSTRAINT FK_HoaDonThanhToan_KhachHang REFERENCES KhachHang(SoDienThoai),
+    MaKhachHang nvarchar(15) CONSTRAINT FK_HoaDonThanhToan_KhachHang REFERENCES KhachHang(MaKhachHang),
 	MaBan varchar(20) CONSTRAINT FK_HoaDonThanhToan_BanAn REFERENCES BanAn(MaBan),
     NgayThanhToan datetime,
     TongTien float,
@@ -114,6 +121,7 @@ create table NganHang (
 	TenNganHang varchar(50),
 	SoTaiKhoan varchar(50),
 	TenChuThe varchar(50),
+	Xoa bit,
 	CONSTRAINT PK_NganHang PRIMARY KEY (MaNganHang)
 )
 

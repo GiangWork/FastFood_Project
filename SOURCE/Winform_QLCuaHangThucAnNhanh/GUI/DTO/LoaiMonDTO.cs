@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-   public class LoaiMonAn
+   public class LoaiMonDTO
     {
         public string MaLoai { get; set; }
         public string TenLoai { get; set; }
-    }
+		public bool Xoa { get; set; }
+	}
 }

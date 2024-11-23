@@ -22,19 +22,46 @@ namespace BLL
             return dal.GetAllNhanVien();
         }
 
-        public bool themNhanVien(NhanVienDTO nv)
+        public List<LoaiNhanVienDTO> GetAllLoaiNhanVien()
         {
-            return dal.AddNhanVien(nv);
+            return dal.GetAllLoaiNhanVien();
         }
 
-        public bool xoaNhanVien(string maNhanVien)
+
+		//public bool themNhanVien(NhanVienDTO nv, string maLoaiNhanVien)
+		//      {
+		//          return dal.AddNhanVien(nv, maLoaiNhanVien);
+		//      }
+
+		//      public bool xoaNhanVien(string maNhanVien, string maLoaiNhanVien)
+		//      {
+		//          return dal.DeleteNhanVien(maNhanVien, maLoaiNhanVien);
+		//      }
+
+		//      public bool capNhatNhanVien(NhanVienDTO nv, string maLoaiNhanVien)
+		//      {
+		//          return dal.UpdateNhanVien(nv, maLoaiNhanVien);
+		//      }
+
+		public bool themNhanVien(NhanVienDTO nv)
+		{
+			return dal.AddNhanVien(nv);
+		}
+
+		public bool xoaNhanVien(string maNhanVien)
+		{
+			return dal.DeleteNhanVien(maNhanVien);
+		}
+
+		public bool capNhatNhanVien(NhanVienDTO nv)
+		{
+			return dal.UpdateNhanVien(nv);
+		}
+
+		public List<NhanVienDTO> searchNhanVienByName(string name)
         {
-            return dal.DeleteNhanVien(maNhanVien);
+            return dal.SearchNhanVienByName(name);
         }
 
-        public bool capNhatNhanVien(NhanVienDTO nv)
-        {
-            return dal.UpdateNhanVien(nv);
-        }
     }
 }
