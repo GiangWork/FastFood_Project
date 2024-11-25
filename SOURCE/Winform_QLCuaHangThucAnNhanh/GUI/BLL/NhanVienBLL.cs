@@ -1,67 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DAL;
 using DTO;
 
 namespace BLL
 {
-    public class NhanVienBLL
-    {
-        private readonly NhanVien_DAL dal;
+	public class NhanVienBLL
+	{
+		private readonly NhanVien_DAL dal;
 
-        public NhanVienBLL()
-        {
-            dal = new NhanVien_DAL();
-        }
-
-        public List<NhanVienDTO> layTatCaNhanVien()
-        {
-            return dal.GetAllNhanVien();
-        }
-
-        public List<LoaiNhanVienDTO> GetAllLoaiNhanVien()
-        {
-            return dal.GetAllLoaiNhanVien();
-        }
-
-
-		//public bool themNhanVien(NhanVienDTO nv, string maLoaiNhanVien)
-		//      {
-		//          return dal.AddNhanVien(nv, maLoaiNhanVien);
-		//      }
-
-		//      public bool xoaNhanVien(string maNhanVien, string maLoaiNhanVien)
-		//      {
-		//          return dal.DeleteNhanVien(maNhanVien, maLoaiNhanVien);
-		//      }
-
-		//      public bool capNhatNhanVien(NhanVienDTO nv, string maLoaiNhanVien)
-		//      {
-		//          return dal.UpdateNhanVien(nv, maLoaiNhanVien);
-		//      }
-
-		public bool themNhanVien(NhanVienDTO nv)
+		public NhanVienBLL()
 		{
+			dal = new NhanVien_DAL();
+		}
+
+		public List<NhanVienDTO> LayTatCaNhanVien()
+		{
+			return dal.GetAllNhanVien();
+		}
+
+		public List<LoaiNhanVienDTO> LayTatCaLoaiNhanVien()
+		{
+			return dal.GetAllLoaiNhanVien();
+		}
+
+		public bool LaQuanLy(string maLoaiNhanVien)
+		{
+			return dal.IsQuanLy(maLoaiNhanVien);
+		}
+
+		public bool ThemNhanVien(NhanVienDTO nv, string maLoaiNhanVien)
+		{
+			if (!LaQuanLy(maLoaiNhanVien))
+				return false;
 			return dal.AddNhanVien(nv);
 		}
 
-		public bool xoaNhanVien(string maNhanVien)
+		public bool XoaNhanVien(string maNhanVien, string maLoaiNhanVien)
 		{
+			if (!LaQuanLy(maLoaiNhanVien))
+				return false;
 			return dal.DeleteNhanVien(maNhanVien);
 		}
 
-		public bool capNhatNhanVien(NhanVienDTO nv)
+		public bool CapNhatNhanVien(NhanVienDTO nv, string maLoaiNhanVien)
 		{
+			if (!LaQuanLy(maLoaiNhanVien))
+				return false;
 			return dal.UpdateNhanVien(nv);
 		}
 
-		public List<NhanVienDTO> searchNhanVienByName(string name)
-        {
-            return dal.SearchNhanVienByName(name);
-        }
+		public List<NhanVienDTO> TimNhanVienTheoTen(string tenNhanVien)
+		{
+			return dal.SearchNhanVienByName(tenNhanVien);
+		}
 
-    }
+		public NhanVienDTO DangNhap(string maNhanVien, string matKhau)
+		{
+			return dal.Login(maNhanVien, matKhau);
+		}
+	}
 }

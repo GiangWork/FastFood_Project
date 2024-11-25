@@ -125,6 +125,7 @@ create table NganHang (
 	CONSTRAINT PK_NganHang PRIMARY KEY (MaNganHang)
 )
 
+
 --------------------------------------------------------------------------------
 CREATE TRIGGER trg_UpdateHoaDonThanhToan
 ON HoaDonThanhToan
@@ -136,3 +137,10 @@ BEGIN
     WHERE MaHoaDon IN (SELECT DISTINCT MaHoaDon FROM Inserted);
 END;
 go
+
+ALTER TABLE HoaDonThanhToan
+DROP CONSTRAINT FK_HoaDonThanhToan_BanAn;
+
+ALTER TABLE HoaDonThanhToan
+ADD CONSTRAINT FK_HoaDonThanhToan_BanAn FOREIGN KEY (MaBan) REFERENCES BanAn(MaBan) ON DELETE SET NULL;
+

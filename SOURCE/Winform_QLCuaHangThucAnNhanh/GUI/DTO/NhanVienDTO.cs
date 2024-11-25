@@ -15,5 +15,7 @@ namespace DTO
         public string MatKhau { get; set; }
         public string MaLoaiNhanVien { get; set; }
 		public bool Xoa { get; set; }
+
+		public static NhanVienDTO CurrentUser { get; set; }
 	}
 }

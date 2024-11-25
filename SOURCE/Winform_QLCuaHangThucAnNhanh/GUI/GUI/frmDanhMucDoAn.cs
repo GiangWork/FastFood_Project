@@ -56,7 +56,18 @@ namespace GUI
                 txtImagePath.Text = row.Cells["HinhAnh"].Value.ToString();
                 cbbLoaiMon.SelectedValue = row.Cells["MaLoai"].Value.ToString(); 
                 txtMoTa.Text = row.Cells["MoTa"].Value.ToString();
-            }
+
+				// Hiển thị hình ảnh vào PictureBox
+				string imagePath = row.Cells["HinhAnh"].Value.ToString();
+				if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+				{
+					anh.Image = Image.FromFile(imagePath); // Hiển thị hình ảnh từ đường dẫn
+				}
+				else
+				{
+					anh.Image = null; // Nếu không có hình ảnh, xóa hình ảnh trong PictureBox
+				}
+			}
         }
 
         void txtGiaBan_KeyPress(object sender, KeyPressEventArgs e)
@@ -180,16 +191,6 @@ namespace GUI
         // Kiểm tra dữ liệu nhập vào hợp lệ
         private bool ValidateInput()
         {
-            //if (string.IsNullOrWhiteSpace(txtTenMA.Text) ||
-            //string.IsNullOrWhiteSpace(txtGiaBan.Text) ||
-            //string.IsNullOrWhiteSpace(txtLoaiMon.Text) ||
-            //string.IsNullOrWhiteSpace(txtMoTa.Text) ||
-            //string.IsNullOrWhiteSpace(txtImagePath.Text))
-            //{
-            //    MessageBox.Show("Vui lòng nhập đầy đủ thông tin món ăn và chọn hình ảnh.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
-
             float giaBan;
             if (!float.TryParse(txtGiaBan.Text, out giaBan))
             {
@@ -204,7 +205,9 @@ namespace GUI
         private void frmDanhMucDoAn_Load(object sender, EventArgs e)
         {
             LoadMonAn();
-        }
+			txtImagePath.Enabled = false;  // Vô hiệu hóa TextBox nếu cần
+			txtImagePath.Visible = false;
+		}
 
         // Tải món ăn từ BLL và hiển thị vào DataGridView
         private void LoadMonAn()
@@ -212,7 +215,7 @@ namespace GUI
             dataMonAn.DataSource = bll.GetMonAn();
             CustomizeDataGridViewHeaders();
             CustomizeDataGridViewColumnWidths();
-        }
+		}
 
         // Làm sạch form
         private void clearForm()
@@ -221,10 +224,10 @@ namespace GUI
             txtTenMA.Clear();
             txtGiaBan.Clear();
             txtTimKiem.Clear();
-            txtLoaiMon.Clear();
+            cbbLoaiMon.SelectedIndex = 0;
             txtMoTa.Clear();
             txtTenMA.Focus();
-            
+            txtImagePath.Clear();
         }
 
         // Tùy chỉnh tiêu đề cột trong DataGridView

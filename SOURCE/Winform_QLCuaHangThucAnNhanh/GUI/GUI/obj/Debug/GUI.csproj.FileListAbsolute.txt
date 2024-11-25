@@ -20,5 +20,8 @@ C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNha
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.frmTrangChu.resources
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\DAL.dll
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\DAL.pdb
-C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\obj\Debug\GUI.csproj.Up2Date
+C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\DAL.dll.config
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\GUI\bin\Debug\BLL.dll

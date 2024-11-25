@@ -169,7 +169,5 @@ namespace GUI
             dataKH.Columns["TenKhachHang"].Width = 250;
             dataKH.Columns["DiaChi"].Width = 300;
         }
-
-       
 	}
 }
