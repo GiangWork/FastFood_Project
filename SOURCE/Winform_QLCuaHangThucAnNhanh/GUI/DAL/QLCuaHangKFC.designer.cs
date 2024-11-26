@@ -1453,7 +1453,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BanAn_HoaDonThanhToan", Storage="_BanAn", ThisKey="MaBan", OtherKey="MaBan", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BanAn_HoaDonThanhToan", Storage="_BanAn", ThisKey="MaBan", OtherKey="MaBan", IsForeignKey=true, DeleteRule="SET NULL")]
 		public BanAn BanAn
 		{
 			get

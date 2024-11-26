@@ -160,8 +160,6 @@ namespace DAL
 		public NhanVienDTO Login(string maNhanVien, string matKhau)
 		{
 			string hashedPassword = MD5Hash(matKhau);
-			Console.WriteLine($"Mật khẩu gốc: {matKhau}");  // Log mật khẩu gốc
-			Console.WriteLine($"Mã hóa mật khẩu: {hashedPassword}");  // Log mật khẩu đã mã hóa
 
 			var nhanVien = db.NhanViens.SingleOrDefault(nv => nv.MaNhanVien == maNhanVien && nv.MatKhau == hashedPassword && (nv.Xoa == false || nv.Xoa == null));
 

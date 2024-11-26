@@ -62,7 +62,7 @@
       <Column Name="UpdatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="HoaDonThanhToan_ChiTietDoanhThu" Member="ChiTietDoanhThus" ThisKey="MaHoaDon" OtherKey="MaHoaDon" Type="ChiTietDoanhThu" />
       <Association Name="HoaDonThanhToan_ChiTietHoaDon" Member="ChiTietHoaDons" ThisKey="MaHoaDon" OtherKey="MaHoaDon" Type="ChiTietHoaDon" />
-      <Association Name="BanAn_HoaDonThanhToan" Member="BanAn" ThisKey="MaBan" OtherKey="MaBan" Type="BanAn" IsForeignKey="true" />
+      <Association Name="BanAn_HoaDonThanhToan" Member="BanAn" ThisKey="MaBan" OtherKey="MaBan" Type="BanAn" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="NhanVien_HoaDonThanhToan" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
       <Association Name="KhachHang_HoaDonThanhToan" Member="KhachHang" ThisKey="MaKhachHang" OtherKey="MaKhachHang" Type="KhachHang" IsForeignKey="true" />
     </Type>

@@ -29,8 +29,6 @@ namespace GUI
 			string maNhanvien = txtMaNhanvVien.Text;
 			string matkhau = txtMatKhau.Text;
 
-			Console.WriteLine($"Mã nhân viên: {maNhanvien}");  // Log mã nhân viên
-			Console.WriteLine($"Mật khẩu: {matkhau}");  // Log mật khẩu gốc
 
 			NhanVienDTO isLogged = BLL.DangNhap(maNhanvien, matkhau);
 			if (isLogged != null)
