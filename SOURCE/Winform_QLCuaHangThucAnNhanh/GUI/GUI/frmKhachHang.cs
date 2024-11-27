@@ -29,6 +29,8 @@ namespace GUI
 
             this.txtSDT.KeyPress += txtSDT_KeyPress;
             this.txtSDT.TextChanged += txtSDT_TextChanged;
+
+            txtMaKH.Enabled = false;
 		}
 
         void txtSDT_TextChanged(object sender, EventArgs e)

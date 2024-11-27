@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using DTO;
 using BLL;
 using System.Globalization;
+using Microsoft.Office.Interop.Word;
+using Word = Microsoft.Office.Interop.Word;
+using System.Runtime.InteropServices;
 
 namespace GUI
 {
@@ -41,6 +44,19 @@ namespace GUI
 
         void cbbSDT_Leave(object sender, EventArgs e)
         {
+            UpdateKhachHangInfo();
+        }
+
+        void cbbSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                UpdateKhachHangInfo();
+            }
+        }
+
+        private void UpdateKhachHangInfo()
+        {
             string sdt = cbbSDT.Text.Trim();
             if (!string.IsNullOrEmpty(sdt))
             {
@@ -54,29 +70,6 @@ namespace GUI
                 {
                     txtTenKH.Text = string.Empty;
                     txtDiaChi.Text = string.Empty;
-                }
-            }
-        }
-
-        void cbbSDT_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                string sdt = cbbSDT.Text.Trim();
-                if (!string.IsNullOrEmpty(sdt))
-                {
-                    var khachHang = khachHangBLL.searchKhachHangTheoSDT(sdt).FirstOrDefault();
-                    if (khachHang != null)
-                    {
-                        txtTenKH.Text = khachHang.TenKhachHang;
-                        txtDiaChi.Text = khachHang.DiaChi;
-                    }
-                    else
-                    {
-                        // Xóa thông tin khách hàng nếu không tìm thấy
-                        txtTenKH.Text = string.Empty;
-                        txtDiaChi.Text = string.Empty;
-                    }
                 }
             }
         }
@@ -147,6 +140,25 @@ namespace GUI
 			//cbbBan.SelectedIndex = 0;
 			//cbbSDT.SelectedIndex = 0;
 		}
+
+        private void ResetForm()
+        {
+            maHoaDon = null;
+            txtSoLuong.Text = string.Empty;
+            txtThanhTien.Text = string.Empty;
+            txtTenKH.Text = string.Empty;
+            txtDiaChi.Text = string.Empty;
+            cbbSDT.SelectedIndex = -1;
+            cbbBan.SelectedIndex = -1;
+            dataHoaDon.Rows.Clear();
+
+            // Disable controls until a new order is created
+            cbbSDT.Enabled = false;
+            cbbBan.Enabled = false;
+            dataMonAn.Enabled = false;
+            txtSoLuong.Enabled = false;
+            btnThem.Enabled = false;
+        }
 
 
 		// Tùy chỉnh tiêu đề các cột trong DataGridView danh sách món ăn
@@ -286,7 +298,7 @@ namespace GUI
                 }
 
                 decimal tongTienDecimal = 0;
-                string thanhTienText = txtThanhTien.Text.Trim();  
+                string thanhTienText = txtThanhTien.Text.Trim();
 
                 // Thử parse với NumberStyles.AllowThousands cho phép dấu phân cách ngàn
                 if (!decimal.TryParse(thanhTienText, NumberStyles.AllowThousands | NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out tongTienDecimal))
@@ -298,21 +310,21 @@ namespace GUI
                 decimal tongTien = tongTienDecimal;
 
                 // Kiểm tra các giá trị cần thiết
-                if (cbbSDT.SelectedValue == null || cbbBan.SelectedValue == null)
+                if (string.IsNullOrEmpty(cbbSDT.Text) || cbbBan.SelectedValue == null)
                 {
                     MessageBox.Show("Vui lòng chọn khách hàng và bàn.");
                     return;
                 }
 
-                string maKhachHang = cbbSDT.SelectedValue.ToString();
-                var khachHangDTO = khachHangBLL.searchKhachHangTheoSDT(maKhachHang).FirstOrDefault();
+                string sdtKhachHang = cbbSDT.Text.Trim();
+                var khachHangDTO = khachHangBLL.searchKhachHangTheoSDT(sdtKhachHang).FirstOrDefault();
                 if (khachHangDTO == null)
                 {
                     khachHangDTO = new KhachHangDTO
                     {
-                        MaKhachHang = khachHangBLL.GenerateMaKhachHang(), 
+                        MaKhachHang = khachHangBLL.GenerateMaKhachHang(),
                         TenKhachHang = txtTenKH.Text.Trim(),
-                        SoDienThoai = cbbSDT.Text.Trim(),
+                        SoDienThoai = sdtKhachHang,
                         DiaChi = txtDiaChi.Text.Trim()
                     };
                     khachHangBLL.AddKhachHang(khachHangDTO);
@@ -350,7 +362,7 @@ namespace GUI
                 if (isSaved)
                 {
                     MessageBox.Show("Hóa đơn đã được lưu thành công!");
-                    clearForm();  
+                    ResetForm(); 
                 }
                 else
                 {
@@ -362,7 +374,6 @@ namespace GUI
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
             }
         }
-
 
 		//=========================================================================================================
 
@@ -418,5 +429,67 @@ namespace GUI
                 }
             }
 		}
+
+        private void BtnInHoaDonWord_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Tạo một đối tượng Word
+                Word.Application wordApp = new Word.Application();
+                wordApp.Visible = true;
+
+                // Tạo một document mới
+                Word.Document doc = wordApp.Documents.Add();
+
+                // Thêm tiêu đề
+                Word.Paragraph para = doc.Paragraphs.Add();
+                para.Range.Text = "Hóa Đơn Thanh Toán";
+                para.Range.InsertParagraphAfter();
+
+                // Thêm bảng để hiển thị thông tin hóa đơn
+                Word.Table table = doc.Tables.Add(para.Range, dataHoaDon.Rows.Count + 1, 5);
+                table.Borders.Enable = 1;
+
+                // Thêm tiêu đề cho các cột
+                table.Cell(1, 1).Range.Text = "Mã Hóa Đơn";
+                table.Cell(1, 2).Range.Text = "Mã Món Ăn";
+                table.Cell(1, 3).Range.Text = "Tên Món Ăn";
+                table.Cell(1, 4).Range.Text = "Số Lượng";
+                table.Cell(1, 5).Range.Text = "Giá Tiền";
+
+                // Điền dữ liệu từ DataGridView vào bảng trong Word
+                int rowIndex = 2;
+                foreach (DataGridViewRow row in dataHoaDon.Rows)
+                {
+                    if (row.Cells["MaMonAn"].Value != null)
+                    {
+                        table.Cell(rowIndex, 1).Range.Text = row.Cells["MaHoaDon"].Value.ToString();
+                        table.Cell(rowIndex, 2).Range.Text = row.Cells["MaMonAn"].Value.ToString();
+                        table.Cell(rowIndex, 3).Range.Text = row.Cells["TenMonAn"].Value.ToString();
+                        table.Cell(rowIndex, 4).Range.Text = row.Cells["SoLuong"].Value.ToString();
+                        table.Cell(rowIndex, 5).Range.Text = row.Cells["GiaTien"].Value.ToString();
+                        rowIndex++;
+                    }
+                }
+
+                // Lưu file Word vào đường dẫn
+                string filePath = @"C:\HoaDon.docx";
+                doc.SaveAs2(filePath);
+
+                // Thông báo khi lưu thành công
+                MessageBox.Show("Hóa đơn đã được in ra file Word tại: " + filePath);
+
+                // Đóng Word
+                doc.Close();
+                Marshal.ReleaseComObject(doc);
+                Marshal.ReleaseComObject(wordApp);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi in hóa đơn: " + ex.Message);
+            }
+        }
+
+        
 	}
 }

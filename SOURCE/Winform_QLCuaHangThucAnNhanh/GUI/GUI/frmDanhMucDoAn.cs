@@ -42,6 +42,8 @@ namespace GUI
 
             this.txtGiaBan.KeyPress += txtGiaBan_KeyPress;
             this.dataMonAn.CellClick += dataMonAn_CellClick;
+
+            txtMaMA.Enabled = false;
         }
 
         void dataMonAn_CellClick(object sender, DataGridViewCellEventArgs e)
