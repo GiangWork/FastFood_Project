@@ -48,15 +48,12 @@ AI: Gợi ý loại thức ăn đi chung kèm theo, chatbot, dự báo doanh thu
 
 | STT | Nghiệp vụ | Phân công  |
 |----------------|--------------------|--------------------|
-|  1  |  Đăng nhập/đăng xuất |   Thảo  |
-|  2  | Phân quyền  |  Thảo |
-|  3  |  Quản lý nhân viên +  chức vụ  |   Thi  |
-|  4  |  Quản lý sách + tác giả + nhà sản xuất + AI|   Thảo  |
-|  5  |  Quản lý khách hàng |  Thi  |
-|  6  |   Quản lý tin tức |  Phát  |
-|  7  |   Thống kê |  Thảo  |
-|  8  |   Báo cáo |  Thảo  |
-|  9  |  Duyệt tin tức|  Thảo  |
+|  1  |  Đăng nhập/đăng xuất |   Thiện |
+|  2  | Phân quyền  |  Thiện |
+|  3  |  Quản lý nhân viên +  chức vụ  |   Thiện  |
+|  4  |  Quản lý khách hàng + món ăn + hóa đơn |   Thiện  |
+|  7  |   Quản lý bán hàng |  Thiện  |
+|  8  |   AI |  Thiện |
 
 ### WEBSITE
 
@@ -133,12 +130,14 @@ AI: Gợi ý loại thức ăn đi chung kèm theo, chatbot, dự báo doanh thu
 **1. Giao diện Người dùng**
 
 	- Màn hình chính: Hiển thị danh sách các món ăn và thức uống có sẵn, cùng với giá cả và mô tả.
-	- Thanh toán: Cho phép người dùng thanh toán bằng tiền mặt hoặc thẻ tín dụng, và in hóa đơn.
+	- Thanh toán: Cho phép người dùng thanh toán và in hóa đơn.
 	- Quản lý đơn hàng: Xem và cập nhật trạng thái đơn hàng.
+ 
 **2. Quản lý Danh mục Sản phẩm**
 
 	- Thêm/Sửa/Xóa sản phẩm: Cho phép người quản lý thêm, sửa đổi hoặc xóa các món ăn nhanh và thức uống trong danh mục.
 	- Quản lý giá cả: Đặt và cập nhật giá cho các sản phẩm.
+ 
 **3. Quản lý Đơn hàng**
 
 	- Tạo đơn hàng: Cho phép nhân viên tạo đơn hàng mới khi khách hàng đặt hàng.
