@@ -144,3 +144,13 @@ DROP CONSTRAINT FK_HoaDonThanhToan_BanAn;
 ALTER TABLE HoaDonThanhToan
 ADD CONSTRAINT FK_HoaDonThanhToan_BanAn FOREIGN KEY (MaBan) REFERENCES BanAn(MaBan) ON DELETE SET NULL;
 
+ALTER TABLE HoaDonThanhToan
+ALTER COLUMN TongTien decimal(18, 2);
+
+INSERT INTO BanAn (MaBan, SoChoNgoi, TrangThai, Xoa)
+VALUES
+    ('B001', 4, N'Trống', 0),  
+    ('B002', 6, N'Có Khách', 0), 
+    ('B003', 2, N'Trống', 0),  
+    ('B004', 4, N'Có Khách', 0), 
+    ('B005', 8, N'Trống', 0);  

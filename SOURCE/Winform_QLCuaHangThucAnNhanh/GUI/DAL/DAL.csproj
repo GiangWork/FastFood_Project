@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BanAnDAL.cs" />
+    <Compile Include="ConnectDB.cs" />
+    <Compile Include="HoaDonThanhToanDAL.cs" />
     <Compile Include="KhachHangDAL.cs" />
     <Compile Include="MonAnDAL.cs" />
     <Compile Include="NhanVien_DAL.cs" />

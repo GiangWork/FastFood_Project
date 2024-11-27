@@ -17,7 +17,7 @@ namespace DAL
         }
 
         // Tạo mã tự động
-        private string GenerateMaKhachHang()
+        public string GenerateMaKhachHang()
         {
             var lastCustomer = db.KhachHangs.OrderByDescending(kh => kh.MaKhachHang).FirstOrDefault();
             if (lastCustomer != null)
@@ -138,5 +138,27 @@ namespace DAL
                  DiaChi = kh.DiaChi
              }).ToList();
         }
-    }
+
+		//========================================================
+		public List<KhachHangDTO> SearchKhachHangByPhoneNumber(string soDienThoai)
+		{
+			return db.KhachHangs
+					 .Where(kh => kh.SoDienThoai.Contains(soDienThoai)) // Tìm kiếm theo số điện thoại
+					 .Select(kh => new KhachHangDTO
+					 {
+						 MaKhachHang = kh.MaKhachHang,
+						 TenKhachHang = kh.TenKhachHang,
+						 SoDienThoai = kh.SoDienThoai,
+						 DiaChi = kh.DiaChi
+					 }).ToList();
+		}
+
+		public List<string> GetAllPhoneNumbers()
+		{
+			return db.KhachHangs
+					 .Where(kh => kh.Xoa == false || kh.Xoa == null) // Lọc các khách hàng chưa bị xóa
+					 .Select(kh => kh.SoDienThoai)
+					 .ToList();
+		}
+	}
 }

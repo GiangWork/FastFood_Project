@@ -37,8 +37,8 @@
       <Column Name="MaMonAn" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TrangThai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Association Name="HoaDonThanhToan_ChiTietHoaDon" Member="HoaDonThanhToan" ThisKey="MaHoaDon" OtherKey="MaHoaDon" Type="HoaDonThanhToan" IsForeignKey="true" />
       <Association Name="MonAn_ChiTietHoaDon" Member="MonAn" ThisKey="MaMonAn" OtherKey="MaMonAn" Type="MonAn" IsForeignKey="true" />
+      <Association Name="HoaDonThanhToan_ChiTietHoaDon" Member="HoaDonThanhToan" ThisKey="MaHoaDon" OtherKey="MaHoaDon" Type="HoaDonThanhToan" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DoanhThu" Member="DoanhThus">
@@ -47,24 +47,6 @@
       <Column Name="NgayKetToan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="TongDoanhThu" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="DoanhThu_ChiTietDoanhThu" Member="ChiTietDoanhThus" ThisKey="MaDoanhThu" OtherKey="MaDoanhThu" Type="ChiTietDoanhThu" />
-    </Type>
-  </Table>
-  <Table Name="dbo.HoaDonThanhToan" Member="HoaDonThanhToans">
-    <Type Name="HoaDonThanhToan">
-      <Column Name="MaHoaDon" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MaNhanVien" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="MaKhachHang" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="MaBan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="NgayThanhToan" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TongTien" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PhuongThucThanhToan" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="HoaDonThanhToan_ChiTietDoanhThu" Member="ChiTietDoanhThus" ThisKey="MaHoaDon" OtherKey="MaHoaDon" Type="ChiTietDoanhThu" />
-      <Association Name="HoaDonThanhToan_ChiTietHoaDon" Member="ChiTietHoaDons" ThisKey="MaHoaDon" OtherKey="MaHoaDon" Type="ChiTietHoaDon" />
-      <Association Name="BanAn_HoaDonThanhToan" Member="BanAn" ThisKey="MaBan" OtherKey="MaBan" Type="BanAn" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="NhanVien_HoaDonThanhToan" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
-      <Association Name="KhachHang_HoaDonThanhToan" Member="KhachHang" ThisKey="MaKhachHang" OtherKey="MaKhachHang" Type="KhachHang" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.KhachHang" Member="KhachHangs">
@@ -113,6 +95,24 @@
       <Column Name="SoTaiKhoan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="TenChuThe" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Xoa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HoaDonThanhToan" Member="HoaDonThanhToans">
+    <Type Name="HoaDonThanhToan">
+      <Column Name="MaHoaDon" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNhanVien" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaKhachHang" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MaBan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NgayThanhToan" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TongTien" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PhuongThucThanhToan" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="HoaDonThanhToan_ChiTietDoanhThu" Member="ChiTietDoanhThus" ThisKey="MaHoaDon" OtherKey="MaHoaDon" Type="ChiTietDoanhThu" />
+      <Association Name="HoaDonThanhToan_ChiTietHoaDon" Member="ChiTietHoaDons" ThisKey="MaHoaDon" OtherKey="MaHoaDon" Type="ChiTietHoaDon" />
+      <Association Name="BanAn_HoaDonThanhToan" Member="BanAn" ThisKey="MaBan" OtherKey="MaBan" Type="BanAn" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="KhachHang_HoaDonThanhToan" Member="KhachHang" ThisKey="MaKhachHang" OtherKey="MaKhachHang" Type="KhachHang" IsForeignKey="true" />
+      <Association Name="NhanVien_HoaDonThanhToan" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

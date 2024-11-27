@@ -49,5 +49,20 @@ namespace BLL
         {
             return khachHangDAL.GetActiveKhachHang();
         }
+
+        public List<KhachHangDTO> searchKhachHangTheoSDT(string soDienThoai)
+        {
+            return khachHangDAL.SearchKhachHangByPhoneNumber(soDienThoai);
+        }
+
+        public List<string> getAllSdt()
+        {
+            return khachHangDAL.GetAllPhoneNumbers();
+        }
+
+        public string GenerateMaKhachHang()
+        {
+            return khachHangDAL.GenerateMaKhachHang();
+        }
     }
 }
