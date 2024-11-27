@@ -35,10 +35,10 @@ AI: Gợi ý loại thức ăn đi chung kèm theo, chatbot, dự báo doanh thu
 | 3 |  Các thông tin về sản phẩm | Huy |
 | 4 |  Quản lý thông tin tài khoản | Giang |
 | 5 |  Đơn hàng | Giang |
-| 6 |  Thanh toán | Thiện |
+| 6 |  Thanh toán | Giang |
 | 7 |  Đánh giá | Huy |
-| 8 |  Giao diện | Thiện |
-| 9 |  Định vị giao hàng | Thiện |
+| 8 |  Giao diện | Giang |
+| 9 |  Định vị giao hàng | Giang |
 | 10 |  AI | Giang |
 | 11 |  Các chức năng cơ bản của Admin (CRUD sản phẩm, thống kê doanh thu) | Giang |
 | 12 |  Giỏ hàng | Huy |
