@@ -65,12 +65,6 @@
     <Compile Include="frmDatMon.Designer.cs">
       <DependentUpon>frmDatMon.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDonDatHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDonDatHang.Designer.cs">
-      <DependentUpon>frmDonDatHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,9 +114,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatMon.resx">
       <DependentUpon>frmDatMon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDonDatHang.resx">
-      <DependentUpon>frmDonDatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>

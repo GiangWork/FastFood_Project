@@ -21,7 +21,6 @@ namespace GUI
 			this.btnNhanVien.Click += BtnNhanVien_Click;
 			this.btnKhachHang.Click += BtnKhachHang_Click;
 			this.btnMonAn.Click += BtnMonAn_Click;
-			this.btnHoaDon.Click += BtnHoaDon_Click;
 			this.btnThongke.Click += BtnThongke_Click;
 			this.btnDatmon.Click += BtnDatmon_Click;
 			this.btnDangxuat.Click += BtnDangxuat_Click;
@@ -35,11 +34,6 @@ namespace GUI
 		private void BtnThongke_Click(object sender, EventArgs e)
 		{
 			OpenChildForm(new frmThongKe());
-		}
-
-		private void BtnHoaDon_Click(object sender, EventArgs e)
-		{
-			OpenChildForm(new frmDonDatHang());
 		}
 
 		private void BtnMonAn_Click(object sender, EventArgs e)

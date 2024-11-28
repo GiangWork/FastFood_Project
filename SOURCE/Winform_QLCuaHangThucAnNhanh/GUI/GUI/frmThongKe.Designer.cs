@@ -28,33 +28,45 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.button1 = new System.Windows.Forms.Button();
-			this.SuspendLayout();
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(337, 142);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Report";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// frmThongKe
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1179, 848);
-			this.Controls.Add(this.button1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Name = "frmThongKe";
-			this.Text = "frmThongKe";
-			this.ResumeLayout(false);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(33, 282);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1099, 533);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(33, 63);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 1;
+            // 
+            // frmThongKe
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1179, 848);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmThongKe";
+            this.Text = "frmThongKe";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Button button1;
-	}
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+
+    }
 }
