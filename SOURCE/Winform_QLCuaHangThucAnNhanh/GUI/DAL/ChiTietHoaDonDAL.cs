@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,37 +10,39 @@ namespace DAL
 {
     public class ChiTietHoaDonDAL
     {
-        private readonly QLCuaHangKFCDataContext db;
+		public List<HoaDonThanhToanDTO> GetAllHoaDon()
+		{
+			// Thay thế chuỗi kết nối của bạn
+			string connectionString = "Data Source=LAPTOP-EDMBMPP4\\SQLEXPRESS;Initial Catalog=QLCuaHangKFC;Integrated Security=True";
 
-        public ChiTietHoaDonDAL()
-        {
-            db = new QLCuaHangKFCDataContext();
-        }
+			List<HoaDonThanhToanDTO> hoaDons = new List<HoaDonThanhToanDTO>();
 
-        public List<HoaDonThanhToanDTO> GetAllHoaDon()
-        {
-            return db.HoaDonThanhToans
-              .Select(ban => new HoaDonThanhToanDTO
-              {
-                  MaNhanVien = ban.MaNhanVien,
-                  MaHoaDon = ban.MaHoaDon,
-                  MaKhachHang = ban.MaKhachHang,
-                  MaBan = ban.MaBan,
-                  // Kiểm tra NgayThanhToan, nếu NULL hoặc không hợp lệ thì gán DateTime.MinValue
-                  NgayThanhToan = ban.NgayThanhToan.HasValue && ban.NgayThanhToan.Value >= new DateTime(1753, 1, 1)
-                                  ? ban.NgayThanhToan.Value
-                                  : DateTime.MinValue,
-                  TongTien = ban.TongTien ?? 0m,  // Xử lý trường Decimal nullable
-                  PhuongThucThanhToan = ban.PhuongThucThanhToan,
-                  // Kiểm tra CreatedAt và UpdatedAt tương tự
-                  CreatedAt = ban.CreatedAt.HasValue && ban.CreatedAt.Value >= new DateTime(1753, 1, 1)
-                             ? ban.CreatedAt.Value
-                             : DateTime.MinValue,
-                  UpdatedAt = ban.UpdatedAt.HasValue && ban.UpdatedAt.Value >= new DateTime(1753, 1, 1)
-                              ? ban.UpdatedAt.Value
-                              : DateTime.MinValue
-              })
-              .ToList();
-        }
-    }
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				connection.Open();
+				string query = "SELECT * FROM HoaDonThanhToan";
+				SqlCommand command = new SqlCommand(query, connection);
+				SqlDataReader reader = command.ExecuteReader();
+
+				while (reader.Read())
+				{
+					HoaDonThanhToanDTO hoaDon = new HoaDonThanhToanDTO
+					{
+						MaHoaDon = reader["MaHoaDon"].ToString(),
+						MaNhanVien = reader["MaNhanVien"].ToString(),
+						MaKhachHang = reader["MaKhachHang"].ToString(),
+						MaBan = reader["MaBan"].ToString(),
+						NgayThanhToan = Convert.ToDateTime(reader["NgayThanhToan"]),
+						TongTien = Convert.ToDecimal(reader["TongTien"]),
+						PhuongThucThanhToan = reader["PhuongThucThanhToan"].ToString(),
+						CreatedAt = Convert.ToDateTime(reader["CreatedAt"]),
+						UpdatedAt = Convert.ToDateTime(reader["UpdatedAt"])
+					};
+					hoaDons.Add(hoaDon);
+				}
+			}
+
+			return hoaDons;
+		}
+	}
 }

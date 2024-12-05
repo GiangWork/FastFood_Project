@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTiet.Designer.cs">
+      <DependentUpon>ChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDanhMucDoAn.cs">
       <SubType>Form</SubType>
     </Compile>
