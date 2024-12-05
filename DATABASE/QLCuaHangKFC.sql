@@ -125,7 +125,16 @@ create table NganHang (
 	CONSTRAINT PK_NganHang PRIMARY KEY (MaNganHang)
 )
 
+create table TaiKhoanKH
+(
+	TaiKhoan nvarchar(50),
+	MatKhau nvarchar(200),
+	MaKhachHang nvarchar(15),
+	CONSTRAINT pk_taikhoan primary key (TaiKhoan),
+	constraint fk_taikhoan_khachhang foreign key (MaKhachHang) references KhachHang(MaKhachHang)
+)
 
+drop table TaiKhoanKH
 --------------------------------------------------------------------------------
 CREATE TRIGGER trg_UpdateHoaDonThanhToan
 ON HoaDonThanhToan
@@ -154,3 +163,6 @@ VALUES
     ('B003', 2, N'Trống', 0),  
     ('B004', 4, N'Có Khách', 0), 
     ('B005', 8, N'Trống', 0);  
+
+	--TenDangNhap nvarchar(225),
+	--MatKhau nvarchar(225),

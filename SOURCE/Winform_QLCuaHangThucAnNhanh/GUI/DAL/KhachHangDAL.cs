@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Security.Cryptography;
 
 namespace DAL
 {
@@ -31,6 +32,22 @@ namespace DAL
             }
         }
 
+        private string HashPassword(string password)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] inputBytes = Encoding.ASCII.GetBytes(password);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
+                return sb.ToString();
+            }
+        }
+
         // Lấy hết thông tin
         public List<KhachHangDTO> GetAllKhachHang()
         {
@@ -39,7 +56,9 @@ namespace DAL
                 MaKhachHang = kh.MaKhachHang,
                 TenKhachHang = kh.TenKhachHang,
                 SoDienThoai = kh.SoDienThoai,
-                DiaChi = kh.DiaChi
+                DiaChi = kh.DiaChi,
+                TenDangNhap = kh.TenDangNhap,
+                MatKhau = kh.MatKhau
             }).ToList();
         }
 
@@ -54,7 +73,9 @@ namespace DAL
                     MaKhachHang = newMaKhachHang,
                     TenKhachHang = kh.TenKhachHang,
                     SoDienThoai = kh.SoDienThoai,
-                    DiaChi = kh.DiaChi
+                    DiaChi = kh.DiaChi,
+                     TenDangNhap = kh.TenDangNhap,
+                    MatKhau = HashPassword(kh.MatKhau) 
                 };
 
                 db.KhachHangs.InsertOnSubmit(newKhachHang);
@@ -100,6 +121,8 @@ namespace DAL
                     khachHang.TenKhachHang = kh.TenKhachHang;
                     khachHang.SoDienThoai = kh.SoDienThoai;
                     khachHang.DiaChi = kh.DiaChi;
+                    khachHang.TenDangNhap = kh.TenDangNhap;
+                    khachHang.MatKhau = HashPassword(kh.MatKhau);
                     db.SubmitChanges();
                     return true;
                 }
@@ -122,7 +145,9 @@ namespace DAL
                          MaKhachHang = kh.MaKhachHang,
                          TenKhachHang = kh.TenKhachHang,
                          SoDienThoai = kh.SoDienThoai,
-                         DiaChi = kh.DiaChi
+                         DiaChi = kh.DiaChi,
+                         TenDangNhap = kh.TenDangNhap,
+                         MatKhau = kh.MatKhau
                      }).ToList();
         }
 
@@ -135,7 +160,9 @@ namespace DAL
                  MaKhachHang = kh.MaKhachHang,
                  TenKhachHang = kh.TenKhachHang,
                  SoDienThoai = kh.SoDienThoai,
-                 DiaChi = kh.DiaChi
+                 DiaChi = kh.DiaChi,
+                 TenDangNhap = kh.TenDangNhap,
+                 MatKhau = kh.MatKhau
              }).ToList();
         }
 
@@ -149,7 +176,9 @@ namespace DAL
 						 MaKhachHang = kh.MaKhachHang,
 						 TenKhachHang = kh.TenKhachHang,
 						 SoDienThoai = kh.SoDienThoai,
-						 DiaChi = kh.DiaChi
+						 DiaChi = kh.DiaChi,
+                         TenDangNhap = kh.TenDangNhap,
+                         MatKhau = kh.MatKhau
 					 }).ToList();
 		}
 

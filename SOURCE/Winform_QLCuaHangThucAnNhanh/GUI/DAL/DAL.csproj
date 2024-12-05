@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BanAnDAL.cs" />
+    <Compile Include="ChiTietHoaDonDAL.cs" />
     <Compile Include="ConnectDB.cs" />
     <Compile Include="HoaDonThanhToanDAL.cs" />
     <Compile Include="KhachHangDAL.cs" />

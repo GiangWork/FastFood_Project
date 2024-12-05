@@ -13,5 +13,7 @@ namespace DTO
         public string SoDienThoai { get; set; }
         public string DiaChi { get; set; }
         public bool Xoa { get; set; }
-	}
+        public string TenDangNhap { get; set;  }
+        public string MatKhau { get; set; }
+    }
 }

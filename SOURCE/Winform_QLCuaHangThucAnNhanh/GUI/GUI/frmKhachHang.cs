@@ -29,9 +29,42 @@ namespace GUI
 
             this.txtSDT.KeyPress += txtSDT_KeyPress;
             this.txtSDT.TextChanged += txtSDT_TextChanged;
-
+            this.txtMatkhau.TextChanged += txtMatkhau_TextChanged;
             txtMaKH.Enabled = false;
+            txtMatkhau.UseSystemPasswordChar = true;
+
 		}
+
+        void txtMatkhau_TextChanged(object sender, EventArgs e)
+        {
+            string password = txtMatkhau.Text;
+            if (!IsPasswordValid(password))
+            {
+                errorProvider.SetError(txtMatkhau, "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.");
+            }
+            else
+            {
+                errorProvider.SetError(txtMatkhau, string.Empty);
+            }
+        }
+
+        private bool IsPasswordValid(string password)
+        {
+            if (password.Length < 8)
+                return false;
+
+            bool hasUpperChar = false, hasLowerChar = false, hasDigit = false, hasSpecialChar = false;
+
+            foreach (char c in password)
+            {
+                if (char.IsUpper(c)) hasUpperChar = true;
+                else if (char.IsLower(c)) hasLowerChar = true;
+                else if (char.IsDigit(c)) hasDigit = true;
+                else hasSpecialChar = true;
+            }
+
+            return hasUpperChar && hasLowerChar && hasDigit && hasSpecialChar;
+        }
 
         void txtSDT_TextChanged(object sender, EventArgs e)
         {
@@ -59,6 +92,8 @@ namespace GUI
                 txtTenKH.Text = row.Cells["TenKhachHang"].Value.ToString();
                 txtSDT.Text = row.Cells["SoDienThoai"].Value.ToString();
                 txtDiaChi.Text = row.Cells["DiaChi"].Value.ToString();
+                txtTendangnhap.Text = row.Cells["TenDangNhap"].Value.ToString();
+                txtMatkhau.Text = row.Cells["MatKhau"].Value.ToString();
             }
         }
 
@@ -76,6 +111,8 @@ namespace GUI
             txtSDT.Clear();
             txtTimKiem.Clear();
             txtTenKH.Focus();
+            txtTendangnhap.Clear();
+            txtMatkhau.Clear();
         }
         //==============================================
 
@@ -86,12 +123,15 @@ namespace GUI
                 TenKhachHang = txtTenKH.Text,
                 SoDienThoai = txtSDT.Text,
                 DiaChi = txtDiaChi.Text,
+                TenDangNhap = txtTendangnhap.Text,
+                MatKhau = txtMatkhau.Text
             };
 
             if (bll.AddKhachHang(kh))
             {
                 MessageBox.Show("Thêm khách hàng thành công!");
                 LoadKhachHang();
+                clearForm();
             }
             else
             {
@@ -107,6 +147,8 @@ namespace GUI
                 TenKhachHang = txtTenKH.Text,
                 SoDienThoai = txtSDT.Text,
                 DiaChi = txtDiaChi.Text,
+                TenDangNhap = txtTendangnhap.Text,
+                MatKhau = txtMatkhau.Text
             };
 
             if (bll.UpdateKhachHang(kh))
@@ -160,7 +202,8 @@ namespace GUI
             dataKH.Columns["SoDienThoai"].HeaderText = "Số Điện Thoại";
             dataKH.Columns["TenKhachHang"].HeaderText = "Tên Khách Hàng";
             dataKH.Columns["DiaChi"].HeaderText = "Địa Chỉ";
-
+            dataKH.Columns["TenDangNhap"].HeaderText = "Tên Đăng Nhập";
+            dataKH.Columns["MatKhau"].HeaderText = "Mật Khẩu";
             dataKH.Columns["Xoa"].Visible = false;
         }
 
@@ -170,6 +213,8 @@ namespace GUI
             dataKH.Columns["SoDienThoai"].Width = 150;
             dataKH.Columns["TenKhachHang"].Width = 250;
             dataKH.Columns["DiaChi"].Width = 300;
+            dataKH.Columns["TenDangNhap"].Width = 200;
+            dataKH.Columns["MatKhau"].Width = 200;
         }
 	}
 }
