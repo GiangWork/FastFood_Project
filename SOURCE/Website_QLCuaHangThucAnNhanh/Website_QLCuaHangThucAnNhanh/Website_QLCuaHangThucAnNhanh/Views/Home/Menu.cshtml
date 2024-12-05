@@ -1,0 +1,61 @@
+﻿@using DTO;
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<LoaiMonDTO> loaiMon = ViewBag.LoaiMon as List<LoaiMonDTO>;
+}
+@model List<DTO.MonAnDTO>
+
+<div style="padding: 20px;">
+    <div class="row">
+        <!-- Thanh điều hướng -->
+        <div class="col side-nav">
+            <h1 style="text-align: center">Thực đơn</h1>
+            <ul id="menuNav" class="nav">
+                @foreach (var item in loaiMon)
+                {
+                    <li><a href="#@item.MaLoai" class="nav-link">@item.TenLoai</a></li>
+                }
+            </ul>
+        </div>
+        <!-- Nội dung menu -->
+        <div class="col content">
+            @foreach (var loai in loaiMon)
+            {
+                <section id="@loai.MaLoai">
+                    <h2>@loai.TenLoai</h2>
+                    <div class="card-container">
+                        @{
+                            var items = Model.Where(m => m.MaLoai == loai.MaLoai).ToList();
+                            int chunkSize = 3;
+                            int totalChunks = (int)Math.Ceiling(items.Count / (double)chunkSize);
+                        }
+                        @for (int i = 0; i < totalChunks; i++)
+                        {
+                            var chunk = items.Skip(i * chunkSize).Take(chunkSize);
+                            <div class="menu-row">
+                                @foreach (var card in chunk)
+                                {
+                                    <div class="col-4 card">
+                                        <img src="@Url.Action("GetImage", "Home", new { fileName = card.HinhAnh })" alt="@card.TenMonAn" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@card.TenMonAn</h5>
+                                            <p class="card-text">@card.MoTa</p>
+
+                                            <div class="card-footer">
+                                                <p class="card-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", card.GiaMonAn)</p>
+                                                <a class="btn btn-primary add-to-cart" href="@Url.Action("AddToCart", "Home", new { MaMonAn = card.MaMonAn})" style="text-decoration: none">Thêm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </section>
+            }
+        </div>
+    </div>
+</div>
+
+

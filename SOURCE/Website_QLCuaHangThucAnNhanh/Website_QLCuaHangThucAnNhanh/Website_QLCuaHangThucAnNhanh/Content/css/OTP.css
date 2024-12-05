@@ -1,0 +1,158 @@
+﻿.rootOtp {
+    margin: 8vw 33vw;
+}
+
+.sign-in-header {
+    text-align: center;
+    margin: auto;
+    display: block;
+    color: #494949;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: 'National2-Medium';
+    margin-bottom: 7%;
+}
+
+.kfcImg {
+    text-align: center;
+    margin: 8% auto;
+    display: block;
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+    font-family: 'National2CondensedWeb-Medium';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #202124;
+    margin-bottom: 7%;
+}
+
+.subTitle {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'National 2 Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.1px;
+    color: #494949;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    margin-block-end: 1em;
+}
+
+.joinNow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.different-number {
+    font-family: 'National2-Medium';
+    color: #494949;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    outline: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.1px;
+}
+
+.otpDiv {
+    text-align: center;
+    display: flex;
+    margin: 0 auto;
+    width: 50%;
+    margin: 1% auto 4%;
+}
+
+.otpNum {
+    width: 20%;
+    margin: 0 auto;
+    border: none;
+    border-bottom: 2px solid #494949;
+    outline: none;
+    text-align: center;
+    font-family: 'National2CondensedWeb-Medium';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 44px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #202124;
+}
+
+
+.expireText {
+    font-family: 'National 2 Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.1px;
+    color: #494949;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+#error {
+    margin-right: 2%;
+}
+
+.joinNow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.different-number {
+    font-family: 'National2-Medium';
+    color: #494949;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    outline: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.1px;
+}
+
+.submitBtnDiv {
+    text-align: center;
+    margin-top: 7%;
+}
+
+#otpBtn {
+    padding: 10px 40px;
+    background-color: #dbdbdb;
+    border-radius: 200px;
+    border: none;
+    outline: none;
+}

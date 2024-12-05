@@ -1,0 +1,57 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/OTP.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="rootOtp">
+        <div id="otpPage">
+            <div class="sign-in-header">Sign In / Sign up</div>
+            <div class="kfcImg" onclick=""> <img src="https://online.kfc.co.in/static/media/kfcLogo.492728c6.svg" alt="kfclogo" tabindex="1"></div>
+            <div class="title">We Just Texted You</div>
+            <div class="subTitle">
+                Please enter the verification code we just sent to <b id="bb"></b>
+            </div>
+            <form>
+                <input type="hidden" name="otp1" id="otp">
+                <div class="joinNow ">
+                    <a href=index.html style="color: #202124;">Different Number?</a>
+                </div>
+                <div class="otpDiv">
+                    <input id="codeBox0" class="otpNum" type="tel" maxlength=1>
+                    <input id="codeBox1" class="otpNum" type="tel" maxlength=1>
+                    <input id="codeBox2" class="otpNum" type="tel" maxlength=1>
+                    <input id="codeBox3" class="otpNum" type="tel" maxlength=1>
+                </div>
+
+
+                <div class="expireText">
+                    <img id="error" />
+                    <span id="timerId"></span>
+                </div>
+
+
+
+        </div>
+
+        <div class="joinNow ">
+
+            <button class="different-number">Resend the Code</button>
+        </div>
+        <div class="submitBtnDiv">
+            <input type="submit" id="otpBtn" value="Confirm-OTP" />
+
+
+        </div>
+        </form>
+    </div>
+    </div>
+
+</body>
+</html>
+<script src="/js/OTP.js"></script>

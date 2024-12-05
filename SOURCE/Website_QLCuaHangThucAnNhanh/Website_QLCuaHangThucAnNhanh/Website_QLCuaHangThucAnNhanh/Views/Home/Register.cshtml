@@ -1,0 +1,187 @@
+﻿@{
+    ViewData["Title"] = "Đăng ký";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--===============================================================================================-->
+    <link rel="icon" href="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://online.kfc.co.in/&size=16">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/Site.css">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <!-- This is header  -->
+    <header>
+        <div class="topmenu">
+            <div></div>
+            <div>
+                <a href="@Url.Action("Index", "Home")"><img class="imgkfc" src="~/Content/Images/kfc-logo.svg" alt=""></a>
+            </div>
+            <div class="div3"><h4 class="menuname"><a class="deals-gls" href="@Url.Action("Menu", "Home")" style="font-family: 'Montserrat', sans-serif; font-weight: bold">Thực đơn</a></h4></div>
+            <div><h4><a class="deals-gls" href="@Url.Action("Deal", "Home")" style="font-family: 'Montserrat', sans-serif; font-weight: bold">Khuyến mãi</a></h4></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <div><img class="imgsignin" src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg" alt=""></div>
+            <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")" style="font-family: 'Montserrat', sans-serif; font-weight: bold">Đăng nhập</a><span class="span"></span></h4></div>
+            <div class="div8"><div class="ripe">₹0</div><img class="kfcbox" src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" alt=""></div>
+        </div>
+    </header>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="~/Content/Images/kfc.png" alt="IMG">
+                </div>
+
+                <form class="login100-form validate-form" method="post" action="/Home/Register">
+                    <span class="login100-form-title" style="font-family: 'Montserrat', sans-serif">
+                        Đăng ký
+                    </span>
+
+                    @if (ViewBag.LoginFail != null)
+                    {
+                        <span class="login100-form-title" style="font-family: 'Montserrat', sans-serif; color: red; font-size: 20px">
+                            ViewBag.LoginFail
+                        </span>
+                    }
+
+                    <div class="wrap-input100 validate-input" data-validate="Tên đăng nhập không được để trống">
+                        <input class="input100" type="text" name="username" placeholder="Tên đăng nhập" style="font-family: 'Montserrat', sans-serif">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Mật khẩu không được để trống">
+                        <input class="input100" type="password" name="password" placeholder="Mật khẩu" style="font-family: 'Montserrat', sans-serif">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn" style="font-family: 'Montserrat', sans-serif">
+                            Đăng ký
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a class="txt2" href="@Url.Action("SignIn", "Home")" style="font-family: 'Montserrat', sans-serif">
+                            Đăng nhập
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- This is footer  -->
+    <footer>
+        <div class="footer">
+            <div class="kfc-logo">
+                <a href="@Url.Action("Index", "Home")"><img src="https://images.ctfassets.net/wtodlh47qxpt/25FSYFuEtGct8NSrtpKe6d/b602f6fe0bf294e6a6dff5d7648bf594/KFC_Logo.svg" alt="kfc-footer-img"></a>
+            </div>
+            <div class="footer-container">
+                <div class="footer-row" style="gap: 10px">
+                    <div class="footer-col">
+                        <h4 style="margin-bottom: 15px; padding-left: 0;">KFC Food</h4>
+                        <ul>
+                            <li><a href="@Url.Action("Menu", "Home")">Menu</a></li>
+                            <li><a href="#">Order Lookup</a></li>
+                            <li><a href="@Url.Action("GifCard", "Home")">Gift Card</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 style="margin-bottom: 15px; padding-left: 0;">Support</h4>
+                        <ul>
+                            <li><a href="@Url.Action("Help", "Home")">Get Help</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">KFC Feedback</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 style="margin-bottom: 15px; padding-left: 0;">Legal</h4>
+                        <ul>
+                            <li><a href="#">Terms and Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="@Url.Action("Disclaimer", "Home")">Disclaimer</a></li>
+                            <li><a href="@Url.Action("CautionNotice", "Home")">Caution Notice</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 style="margin-bottom: 15px; padding-left: 0;">KFC India</h4>
+                        <ul>
+                            <li><a href="@Url.Action("About", "Home")">About KFC</a></li>
+                            <li><a href="#">KFC care</a></li>
+                            <li><a href="@Url.Action("Careers", "Home")">Careers</a></li>
+                            <li><a href="#">Our Golden Past</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <!-- <span><i class="fa-solid fa-location-dot"></i>KFC</span> -->
+                        <ul id="underline">
+                            <li><a href="#"><i class="fa-solid fa fa-map-marker"></i> Find a KFC</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="playstore">
+                <a href="https://play.google.com/store/apps/details?id=com.yum.kfc" target="_blank"><img src="https://images.ctfassets.net/wtodlh47qxpt/6BdZsyjLn64c06uCIE73d1/fb530f5d5231533b049463f6c7e8a2b1/google_play.svg" alt="playstore"></a>
+            </div>
+            <div class="appstore">
+                <a href="https://apps.apple.com/in/app/kfc-india/id915824379" target="_blank"> <img src="https://images.ctfassets.net/wtodlh47qxpt/em3mcMuAdXWlgucSJiTbS/d3ae7e51ed101d829e459355e255c47f/apple.svg" alt="appstore"></a>
+            </div>
+        </div>
+        <div class="foot-col-sol">
+            <div class="copyright">
+            </div>
+            <div class="Social-Links">
+                <a href="https://www.instagram.com/kfcindia_official/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.facebook.com/KFCIndia" target="_blank"><i class="fa fa-facebook-f"></i></a>
+                <a href="https://twitter.com/KFC_India" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<!--===============================================================================================-->
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="/vendor/bootstrap/js/popper.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="/vendor/tilt/tilt.jquery.min.js"></script>
+<script>
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+<!--===============================================================================================-->
+<script src="~/Content/js/main.js"></script>

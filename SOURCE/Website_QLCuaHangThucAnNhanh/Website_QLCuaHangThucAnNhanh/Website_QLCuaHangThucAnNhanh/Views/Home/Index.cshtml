@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mid">
+    <h4 id="topbar">
+        <span>Đặt Ngay</span>
+        <span>
+            <img class="icon-delivery" src="~/Content/Images/delivery-bike.png" />
+            Giao Hàng
+        </span>
+        <span>
+            <img class="icon-delivery" src="~/Content/Images/take-away.png" />
+            hoặc Mang đi
+        </span>
+        <span><button id="button-start"><a class="start-gls" href="#">start order</a></button></span>
+    </h4>
+</div>
+<!-- there should be some other div here for the sliding images and "welcome to KFC" -->
+<div class="main-carousel">
+    <div class="cell"><img src="https://images.ctfassets.net/wtodlh47qxpt/bwwtSv4zmZZm42c5wSg8Z/e24fc963e2fe768d2bf36bc1c200f7ae/Matchday_Banner_1440x396px_A.jpg" alt="first slide"></div>
+    <div class="cell"><img src="https://images.ctfassets.net/wtodlh47qxpt/6C7plVV6khmYCotBjkMbpX/1871bd3bc4f6b4ef704564f47bf2cffe/KFC_600_Bucket_KV_Digital_desktop.png" alt="second slide"></div>
+    <div class="cell"><img src="https://images.ctfassets.net/wtodlh47qxpt/4w2NU51eNqAlF0S4k3YLTB/0872e046c202005f49e6c94489c8ce40/4Value_Burger_1440x396px.png" alt="3rd slide"></div>
+</div>
+
+<div class="categories">
+    <div class="text"><h1>Danh mục món ăn</h1></div>
+    <div class="line"><hr></div>
+    <div id="container">
+        <div id="a">
+            <div class="boximg">
+                <a href="@Url.Action("Menu", "Home")#LMA0001"><img src="~/Content/Images/GA.jpg" class="Image"></a>
+            </div>
+            <div class="boxtext"><a class="deals-gls" href="@Url.Action("Menu", "Home")#LMA0001">Gà rán</a></div>
+        </div>
+        <div id="b">
+            <div class="boximg">
+                <a href="@Url.Action("Menu", "Home")#LMA0002"><img src="~/Content/Images/COM.jpg" class="Image"></a>
+            </div>
+            <div class="boxtext"><a class="deals-gls" href="@Url.Action("Menu", "Home")#LMA0002">Burger - Cơm - Mì Ý</a></div>
+        </div>
+        <div id="c">
+            <div class="boximg">
+                <a href="@Url.Action("Menu", "Home")#LMA0003"><img src="~/Content/Images/MON AN NHE.jpg" class="Image"></a>
+            </div>
+            <div class="boxtext"><a class="deals-gls" href="@Url.Action("Menu", "Home")#LMA0003">Thức Ăn Nhẹ</a></div>
+        </div>
+        <div id="d">
+            <div class="boximg">
+                <a href="@Url.Action("Menu", "Home")#LMA0004"><img src="~/Content/Images/TRANG MIENG.jpg" class="Image"></a>
+            </div>
+            <div class="boxtext"><a class="deals-gls" href="@Url.Action("Menu", "Home")#LMA0004">Thức Uống - Tráng Miệng</a></div>
+        </div>
+        <div id="g">
+            <div class="boximg">
+                <a href="@Url.Action("Menu", "Home")"><img src="~/Content/Images/finger_lickin.fc21c805.svg" class="Imagelast"></a>
+            </div>
+            <div class="boxtext" style="margin-top: 80px; margin-bottom: 0"><a class="deals-gls" href="@Url.Action("Menu", "Home")">View All Menu</a></div>
+        </div>
+    </div>
+</div>

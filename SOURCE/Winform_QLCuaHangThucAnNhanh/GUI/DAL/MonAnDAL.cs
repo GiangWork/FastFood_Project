@@ -42,7 +42,7 @@ namespace DAL
                 string fileName = Path.GetFileName(imagePath);
                 string savePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Image", fileName);
                 File.Copy(imagePath, savePath, true);
-                monAn.HinhAnh = "Image\\" + fileName;
+                monAn.HinhAnh = fileName;
 
                 monAn.MaMonAn = GenerateMaMonAn();
 
@@ -114,7 +114,7 @@ namespace DAL
                     string fileName = Path.GetFileName(newImagePath);
                     string savePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Image", fileName);
                     File.Copy(newImagePath, savePath, true);
-                    updateMonAn.HinhAnh = "Image\\" + fileName;
+                    updateMonAn.HinhAnh =fileName;
                 }
 
                 updateMonAn.TenMonAn = monAn.TenMonAn;

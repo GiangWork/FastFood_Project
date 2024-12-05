@@ -64,5 +64,10 @@ namespace BLL
         {
             return khachHangDAL.GenerateMaKhachHang();
         }
-    }
+
+		public bool CheckLogin(string TenDangNhap, string MatKhau)
+		{
+			return khachHangDAL.CheckLogin(TenDangNhap, MatKhau);
+		}
+	}
 }

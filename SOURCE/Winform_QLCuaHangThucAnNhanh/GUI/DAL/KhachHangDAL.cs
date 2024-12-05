@@ -189,5 +189,27 @@ namespace DAL
 					 .Select(kh => kh.SoDienThoai)
 					 .ToList();
 		}
+
+		public bool CheckLogin(string TenDangNhap, string MatKhau)
+		{
+			try
+			{
+				List<KhachHangDTO> khachHangs = GetAllKhachHang();
+				foreach (var item in khachHangs)
+				{
+					if (item.TenDangNhap == TenDangNhap && HashPassword(MatKhau) == item.MatKhau)
+					{
+						return true;
+					}
+				}
+
+				return false;
+			}
+			catch (Exception ex)
+			{
+
+				return false;
+			}
+		}
 	}
 }

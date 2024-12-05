@@ -1,0 +1,130 @@
+﻿#container {
+    width: 100%;
+    padding: 10px;
+}
+
+.topmenu {
+    width: 100%;
+    margin-top: -10px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 15px 0px;
+    background-color: white;
+}
+
+.topmenu > div {
+    width: 10%;
+    margin: auto;
+}
+
+.topmenu > div:nth-child(3) {
+    width: 60px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.imgkfc {
+    width: 100%;
+    height: 25px;
+}
+
+.menuname {
+    text-align: center;
+}
+
+.imgsignin {
+    margin-left: 82%;
+}
+
+.span {
+    border-left: 0.3px solid black;
+    margin-left: 8px;
+}
+
+#divseven {
+    width: 60px;
+    font-size: 20px;
+}
+
+.kfcbox {
+    height: 40px;
+}
+
+.div8 {
+    display: flex;
+}
+
+.ripe {
+    margin-top: 10px;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.middlesec {
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(auto,300px);
+    gap: 30px;
+}
+
+h2 {
+    margin-top: 40px;
+    text-align: center;
+    color: gold;
+    margin-bottom: 50px;
+}
+
+.btn1 {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: rgb(247, 129, 129);
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.btn1:hover {
+    background-color: crimson;
+}
+
+.btn2 {
+    padding: 10px 34px;
+    margin-bottom: 20px;
+    background-color: rgb(128, 209, 241);
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.btn2:hover {
+    background-color: rgb(16, 147, 199);
+}
+
+.div1 {
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+a {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+
+.totalcart {
+    text-align: right;
+    font-size: large;
+    font-weight: bolder;
+    color: rgb(122, 201, 4);
+    margin-right: 20px;
+}
+
+.allprice {
+    text-align: right;
+    font-size: large;
+    font-weight: bolder;
+    color: tomato;
+}

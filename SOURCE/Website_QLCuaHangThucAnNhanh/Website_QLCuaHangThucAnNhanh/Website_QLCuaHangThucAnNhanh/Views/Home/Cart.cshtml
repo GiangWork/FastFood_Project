@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DTO.KhachHangDTO user = ViewBag.User as DTO.KhachHangDTO;
+}
+@model Website_QLCuaHangThucAnNhanh.Models.Cart
+
+<div style="padding: 20px;">
+    <div class="row" style="display: flex;">
+        <!-- Cột bên trái: Các món ăn đã thêm vào giỏ hàng -->
+        <div class="cart-items" style="flex: 3; padding-right: 20px;">
+            <h2>Giỏ hàng của bạn</h2>
+            <div class="card-container">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="card" style="display: flex; margin-bottom: 20px;">
+                        <img src="@Url.Action("GetImage", "Home", new { fileName = item.HinhAnh })" alt="@item.TenMonAn" class="card-img" style="width: 200px; height: 150px; object-fit: cover; margin-right: 20px;">
+                        <div class="card-body" style="flex-grow: 1;">
+                            <h5 class="card-title">@item.TenMonAn</h5>
+                            <p class="card-description">@item.MoTa</p>
+                            <div class="card-footer">
+                                <p class="card-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", item.GiaMonAn)</p>
+
+                                <!-- Nút tăng giảm số lượng -->
+                                <div class="quantity-control" style="display: flex; align-items: center;">
+                                    <form action="@Url.Action("UpdateCart", "Home")" method="post" style="margin-right: 10px;">
+                                        <input type="hidden" name="MaMonAn" value="@item.MaMonAn" />
+                                        <button type="submit" class="btn btn-secondary" name="delta" value="-1">-</button>
+                                    </form>
+
+                                    <input type="number" value="@item.SoLuong" id="quantity_@item.MaMonAn" class="quantity-input" style="width: 50px; text-align: center;" readonly />
+
+                                    <form action="@Url.Action("UpdateCart", "Home")" method="post" style="margin-left: 10px;">
+                                        <input type="hidden" name="MaMonAn" value="@item.MaMonAn" />
+                                        <button type="submit" class="btn btn-secondary" name="delta" value="1">+</button>
+                                    </form>
+
+                                    <a href="@Url.Action("RemoveFromCart", "Home", new { MaMonAn = item.MaMonAn })" style="width: 100%; padding: 10px; background-color: #ff0000; color: white; border: none; font-size: 16px; text-decoration: none; border-radius: 5px; margin-left: 10px">Xoá</a>
+                                </div>
+
+                                <!-- Hiển thị tổng tiền của món ăn -->
+                                <p class="card-total">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", item.GiaMonAn * item.SoLuong)</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Cột bên phải: Tổng tiền -->
+        <div class="total-summary" style="flex: 1; padding-left: 20px; border: 1px solid #ccc; padding: 20px; position: sticky; top: 0; height: 100%; background-color: #f9f9f9;">
+            <h3>Số Lượng Món: @Model.Items.Count()</h3>
+            <div class="total-info" style="font-size: 18px;">
+                <form method="post" action="/Home/Payment">
+                    <input type="hidden" name="TongTien" value="@Model.Items.Sum(item => item.GiaMonAn * item.SoLuong)" />
+                    <input type="hidden" name="MaKhachHang" value="@user.MaKhachHang" />
+                    <p>Phương thức thanh toán</p>
+                    <select class="form-select" name="PhuongThucThanhToan" aria-label="Phương thức thanh toán" required>
+                        <option value="Tiền mặt" selected>Tiền mặt</option>
+                        <option value="Thẻ" selected>Thẻ</option>
+                    </select>
+                    <p><strong>Tổng Tiền:</strong> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", Model.Items.Sum(item => item.GiaMonAn * item.SoLuong))</p>
+                    <button type="submit" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 5px">Thanh Toán</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
