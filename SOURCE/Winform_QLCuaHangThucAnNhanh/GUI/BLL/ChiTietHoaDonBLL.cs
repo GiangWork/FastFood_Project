@@ -21,5 +21,10 @@ namespace BLL
         {
             return _chiTietHoaDonDAL.GetAllHoaDon();
         }
+
+        public List<ChiTietHoaDonDTO> GetAllChiTietHoaDon()
+        {
+            return _chiTietHoaDonDAL.GetAllChiTietHoaDon();
+        }
     }
 }

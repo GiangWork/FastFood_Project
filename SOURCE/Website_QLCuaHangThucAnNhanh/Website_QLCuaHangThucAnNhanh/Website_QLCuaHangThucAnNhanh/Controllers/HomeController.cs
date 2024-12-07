@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Website_QLCuaHangThucAnNhanh.AI;
 using Website_QLCuaHangThucAnNhanh.Models;
 
 namespace Website_QLCuaHangThucAnNhanh.Controllers
@@ -44,7 +45,7 @@ namespace Website_QLCuaHangThucAnNhanh.Controllers
 
         public ActionResult GetImage(string fileName)
         {
-            string imagePath = Path.Combine(@"C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\Image", fileName);
+            string imagePath = Path.Combine(@"D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\Image", fileName);
 
             if (!System.IO.File.Exists(imagePath))
                 return HttpNotFound();
@@ -82,7 +83,34 @@ namespace Website_QLCuaHangThucAnNhanh.Controllers
                     ViewBag.User = item;
                 }
             }
+
+            ViewBag.SuggestedFood = SuggestedFood();
+
             return View(_cart);
+        }
+
+        public List<MonAnDTO> SuggestedFood()
+        {
+            List<MonAnDTO> getAllMonAn = monAnBLL.GetMonAn();
+            int minSupport = 2;
+            double minConfidence = 0.5;
+            var foodSuggestion = new FoodSuggestion();
+            var suggestedItems = foodSuggestion.GetSuggestedItemsForCart(_cart.Items, minSupport, minConfidence);
+
+            List<MonAnDTO> goiYMonAn = new List<MonAnDTO>();
+
+            foreach (MonAnDTO monAn in getAllMonAn)
+            {
+                foreach (string monAnGoiY in suggestedItems)
+                {
+                    if (monAn.MaMonAn == monAnGoiY)
+                    {
+                        goiYMonAn.Add(monAn);
+                    }
+                }
+            }
+
+            return goiYMonAn;
         }
 
         // Thêm món vào giỏ hàng
@@ -158,7 +186,8 @@ namespace Website_QLCuaHangThucAnNhanh.Controllers
                 {
                     MaHoaDon = maHoaDon,
                     MaMonAn = item.MaMonAn,
-                    SoLuong = item.SoLuong
+                    SoLuong = item.SoLuong,
+                    TrangThai = "Đã thanh toán"
                 };
                 chiTietHoaDonDTOs.Add(chiTietHoaDonDTO);
             }
@@ -169,8 +198,7 @@ namespace Website_QLCuaHangThucAnNhanh.Controllers
                 MaKhachHang = MaKhachHang,
                 NgayThanhToan = DateTime.Now,
                 TongTien = (decimal)(TongTien),
-                PhuongThucThanhToan = PhuongThucThanhToan,
-
+                PhuongThucThanhToan = PhuongThucThanhToan
             };
 
             if (hoaDonBLL.SaveHoaDonThanhToan(hoaDonDTO, chiTietHoaDonDTOs))
@@ -180,7 +208,6 @@ namespace Website_QLCuaHangThucAnNhanh.Controllers
   
             return RedirectToAction("Cart");
         }
-
 
         public ActionResult Careers()
         {
@@ -209,6 +236,7 @@ namespace Website_QLCuaHangThucAnNhanh.Controllers
             if (result)
             {
                 Session["TenDangNhap"] = username;
+                Session["MatKhau"] = password;
                 return RedirectToAction("Index");
             }
             ViewBag.LoginFail = "Tên đăng nhập hoặc mật khẩu không đúng";
@@ -242,6 +270,47 @@ namespace Website_QLCuaHangThucAnNhanh.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult UserInfo()
+        {
+            List<KhachHangDTO> kh =  khachHangBLL.GetAllKhachHang();
+            foreach (KhachHangDTO item in kh)
+            {
+                if (item.TenDangNhap == Session["TenDangNhap"].ToString())
+                {
+                    ViewBag.MatKhau = Session["MatKhau"].ToString();
+                    return View(item);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult UserInfo(KhachHangDTO kh)
+        {
+            bool result = khachHangBLL.UpdateKhachHang(kh);
+
+            // Kiểm tra nếu cập nhật thành công
+            if (result)
+            {
+                Session["MatKhau"] = kh.MatKhau;
+                // Lấy lại danh sách khách hàng để kiểm tra
+                List<KhachHangDTO> khList = khachHangBLL.GetAllKhachHang();
+
+                // Tìm khách hàng tương ứng với tên đăng nhập trong session
+                foreach (KhachHangDTO item in khList)
+                {
+                    if (item.TenDangNhap == Session["TenDangNhap"].ToString())
+                    {
+                        ViewBag.MatKhau = Session["MatKhau"].ToString();
+                        return View(item); // Trả về View với thông tin người dùng mới nhất
+                    }
+                }
+            }
+
+            // Nếu không tìm thấy hoặc cập nhật thất bại, chuyển hướng về trang chủ
             return RedirectToAction("Index");
         }
     }

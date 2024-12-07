@@ -20,9 +20,23 @@ namespace DAL
 										 "VALUES(@MaHoaDon, @MaNhanVien, @MaKhachHang, @MaBan, @NgayThanhToan, @TongTien, @PhuongThucThanhToan)";
 					SqlCommand cmdHoaDon = new SqlCommand(queryHoaDon, conn, transaction);
 					cmdHoaDon.Parameters.AddWithValue("@MaHoaDon", hoaDon.MaHoaDon);
-					cmdHoaDon.Parameters.AddWithValue("@MaNhanVien", hoaDon.MaNhanVien);
+					if (hoaDon.MaNhanVien == null)
+					{
+                        cmdHoaDon.Parameters.AddWithValue("@MaNhanVien", (object)DBNull.Value);
+                    }
+					else
+					{
+                        cmdHoaDon.Parameters.AddWithValue("@MaNhanVien", hoaDon.MaNhanVien);
+                    }
 					cmdHoaDon.Parameters.AddWithValue("@MaKhachHang", hoaDon.MaKhachHang);
-					cmdHoaDon.Parameters.AddWithValue("@MaBan", hoaDon.MaBan);
+					if (hoaDon.MaBan == null)
+					{
+                        cmdHoaDon.Parameters.AddWithValue("@MaBan", (object)DBNull.Value);
+                    }
+					else
+					{
+                        cmdHoaDon.Parameters.AddWithValue("@MaBan", hoaDon.MaBan);
+                    }
 					cmdHoaDon.Parameters.AddWithValue("@NgayThanhToan", hoaDon.NgayThanhToan);
 					cmdHoaDon.Parameters.AddWithValue("@TongTien", hoaDon.TongTien);
 					cmdHoaDon.Parameters.AddWithValue("@PhuongThucThanhToan", hoaDon.PhuongThucThanhToan);

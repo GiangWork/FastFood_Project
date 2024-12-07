@@ -2,6 +2,7 @@
     ViewData["Title"] = "Giỏ hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
     DTO.KhachHangDTO user = ViewBag.User as DTO.KhachHangDTO;
+    List<DTO.MonAnDTO> goiYMonAn = ViewBag.SuggestedFood as List<DTO.MonAnDTO>;
 }
 @model Website_QLCuaHangThucAnNhanh.Models.Cart
 
@@ -25,14 +26,14 @@
                                 <div class="quantity-control" style="display: flex; align-items: center;">
                                     <form action="@Url.Action("UpdateCart", "Home")" method="post" style="margin-right: 10px;">
                                         <input type="hidden" name="MaMonAn" value="@item.MaMonAn" />
-                                        <button type="submit" class="btn btn-secondary" name="delta" value="-1">-</button>
+                                        <button type="submit" class="btn-decrement" name="delta" value="-1">-</button>
                                     </form>
 
                                     <input type="number" value="@item.SoLuong" id="quantity_@item.MaMonAn" class="quantity-input" style="width: 50px; text-align: center;" readonly />
 
                                     <form action="@Url.Action("UpdateCart", "Home")" method="post" style="margin-left: 10px;">
                                         <input type="hidden" name="MaMonAn" value="@item.MaMonAn" />
-                                        <button type="submit" class="btn btn-secondary" name="delta" value="1">+</button>
+                                        <button type="submit" class="btn-increment" name="delta" value="1">+</button>
                                     </form>
 
                                     <a href="@Url.Action("RemoveFromCart", "Home", new { MaMonAn = item.MaMonAn })" style="width: 100%; padding: 10px; background-color: #ff0000; color: white; border: none; font-size: 16px; text-decoration: none; border-radius: 5px; margin-left: 10px">Xoá</a>
@@ -45,6 +46,25 @@
                     </div>
                 }
             </div>
+
+            @if (goiYMonAn.Count() != 0)
+            {
+                <!-- Gợi ý món ăn -->
+                <div class="suggested-foods">
+                    <h3>Sẽ ngon hơn khi thưởng thức cùng...</h3>
+                    <div class="suggested-items" style="display: flex; overflow-x: auto; padding-bottom: 20px;">
+                        @foreach (var item in goiYMonAn)
+                        {
+                            <div class="suggested-item" style="margin-right: 10px; flex: 0 0 auto; text-align: center;">
+                                <img src="@Url.Action("GetImage", "Home", new { fileName = item.HinhAnh })" alt="@item.TenMonAn" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 5px;">
+                                <p>@item.TenMonAn</p>
+                                <p>@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", item.GiaMonAn)</p>
+                                <a href="@Url.Action("AddToCart", "Home", new { MaMonAn = item.MaMonAn })" class="btn-add-to-cart" style="display: block; padding: 5px 10px; background-color: #ff6600; color: white; text-decoration: none; border-radius: 5px; font-size: 14px;">Thêm vào giỏ</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
         </div>
 
         <!-- Cột bên phải: Tổng tiền -->
@@ -56,8 +76,8 @@
                     <input type="hidden" name="MaKhachHang" value="@user.MaKhachHang" />
                     <p>Phương thức thanh toán</p>
                     <select class="form-select" name="PhuongThucThanhToan" aria-label="Phương thức thanh toán" required>
-                        <option value="Tiền mặt" selected>Tiền mặt</option>
-                        <option value="Thẻ" selected>Thẻ</option>
+                        <option value="Tiền Mặt" selected>Tiền Mặt</option>
+                        <option value="Chuyển Khoản" selected>Chuyển Khoản</option>
                     </select>
                     <p><strong>Tổng Tiền:</strong> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", Model.Items.Sum(item => item.GiaMonAn * item.SoLuong))</p>
                     <button type="submit" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 5px">Thanh Toán</button>

@@ -10,3 +10,15 @@ C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNha
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\obj\Debug\BLL.csproj.Up2Date
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\obj\Debug\BLL.dll
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\obj\Debug\BLL.pdb
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\bin\Debug\BLL.dll
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\bin\Debug\BLL.pdb
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\bin\Debug\DAL.dll
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\bin\Debug\DTO.dll
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\bin\Debug\DAL.pdb
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\bin\Debug\DAL.dll.config
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\bin\Debug\DTO.pdb
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\obj\Debug\BLL.csproj.Up2Date
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\obj\Debug\BLL.dll
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\BLL\obj\Debug\BLL.pdb

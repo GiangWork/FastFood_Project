@@ -36,15 +36,23 @@
             <div>
                 <a href="@Url.Action("Index", "Home")"><img class="imgkfc" src="~/Content/Images/kfc-logo.svg" alt=""></a>
             </div>
-            <div class="div3"><h4 class="menuname"><a class="deals-gls" href="@Url.Action("Menu", "Home")" style="font-family: 'Montserrat', sans-serif; font-weight: bold">Thực đơn</a></h4></div>
-            <div><h4><a class="deals-gls" href="@Url.Action("Deal", "Home")" style="font-family: 'Montserrat', sans-serif; font-weight: bold">Khuyến mãi</a></h4></div>
+            <div class="div3"><h4 class="menuname"><a class="deals-gls" href="@Url.Action("Menu", "Home")" style="font-weight: bold">Thực đơn</a></h4></div>
+            <div><h4><a class="deals-gls" href="@Url.Action("Deal", "Home")" style="font-weight: bold">Khuyến mãi</a></h4></div>
             <div></div>
             <div></div>
             <div></div>
 
-            <div><img class="imgsignin" src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg" alt=""></div>
-            <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")" style="font-family: 'Montserrat', sans-serif; font-weight: bold">Đăng nhập</a><span class="span"></span></h4></div>
-            <div class="div8"><div class="ripe">₹0</div><img class="kfcbox" src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" alt=""></div>
+            @if (Session["TenDangNhap"] != null)
+            {
+                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("UserInfo", "Home")">Hồ sơ</a></h4></div>
+                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")">Đăng xuất</a></h4></div>
+            }
+            else
+            {
+                <div></div>
+                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")">Đăng nhập</a></h4></div>
+            }
+            <div class="div8"><a href="@Url.Action("Cart", "Home")"><img class="kfcbox" src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" alt=""></a></div>
         </div>
     </header>
 
@@ -56,19 +64,19 @@
                 </div>
 
                 <form class="login100-form validate-form" method="post" action="/Home/Register">
-                    <span class="login100-form-title" style="font-family: 'Montserrat', sans-serif">
+                    <span class="login100-form-title" >
                         Đăng ký
                     </span>
 
                     @if (ViewBag.LoginFail != null)
                     {
-                        <span class="login100-form-title" style="font-family: 'Montserrat', sans-serif; color: red; font-size: 20px">
+                        <span class="login100-form-title" style="color: red; font-size: 20px">
                             ViewBag.LoginFail
                         </span>
                     }
 
                     <div class="wrap-input100 validate-input" data-validate="Tên đăng nhập không được để trống">
-                        <input class="input100" type="text" name="username" placeholder="Tên đăng nhập" style="font-family: 'Montserrat', sans-serif">
+                        <input class="input100" type="text" name="username" placeholder="Tên đăng nhập" >
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -76,7 +84,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Mật khẩu không được để trống">
-                        <input class="input100" type="password" name="password" placeholder="Mật khẩu" style="font-family: 'Montserrat', sans-serif">
+                        <input class="input100" type="password" name="password" placeholder="Mật khẩu" >
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -84,13 +92,13 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button type="submit" class="login100-form-btn" style="font-family: 'Montserrat', sans-serif">
+                        <button type="submit" class="login100-form-btn" >
                             Đăng ký
                         </button>
                     </div>
 
                     <div class="text-center p-t-136">
-                        <a class="txt2" href="@Url.Action("SignIn", "Home")" style="font-family: 'Montserrat', sans-serif">
+                        <a class="txt2" href="@Url.Action("SignIn", "Home")" >
                             Đăng nhập
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>

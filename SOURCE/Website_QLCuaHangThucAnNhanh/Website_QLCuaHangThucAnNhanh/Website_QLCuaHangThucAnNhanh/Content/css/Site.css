@@ -707,11 +707,11 @@ section {
     border-collapse: collapse;
 }
 
-    .table th, .table td {
-        border: 1px solid #ccc;
-        padding: 8px;
-        text-align: left;
-    }
+.table th, .table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
 
 /* Nút thanh toán */
 #btn_ThanToan {
@@ -726,5 +726,85 @@ section {
 
 #btn_ThanToan:hover {
     background-color: #218838;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.btn-decrement, .btn-increment {
+    width: 35px;
+    height: 35px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-decrement:hover, .btn-increment:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-decrement:focus, .btn-increment:focus {
+    outline: none;
+}
+
+.suggested-foods {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.suggested-items {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 10px;
+}
+
+.suggested-item {
+    margin-right: 15px;
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.suggested-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.suggested-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.suggested-item .btn-add-to-cart {
+    padding: 5px 10px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
 }
 

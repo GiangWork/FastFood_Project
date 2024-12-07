@@ -42,15 +42,15 @@
 
             @if (Session["TenDangNhap"] != null)
             {
-                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")">Hồ sơ</a><span class="span"></span></h4></div>
-                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")">Đăng xuất</a><span class="span"></span></h4></div>
+                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("UserInfo", "Home")">Hồ sơ</a></h4></div>
+                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")">Đăng xuất</a></h4></div>
             }
             else
             {
                 <div></div>
-                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")">Đăng nhập</a><span class="span"></span></h4></div>
+                <div id="divseven"><h4 class="signin"><a class="deals-gls" href="@Url.Action("SignIn", "Home")">Đăng nhập</a></h4></div>
             }
-            <div class="div8"><div class="ripe">₹0</div><a href="@Url.Action("Cart", "Home")"><img class="kfcbox" src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" alt=""></a></div>
+            <div class="div8"><a href="@Url.Action("Cart", "Home")"><img class="kfcbox" src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" alt=""></a></div>
         </div>
     </header>
 

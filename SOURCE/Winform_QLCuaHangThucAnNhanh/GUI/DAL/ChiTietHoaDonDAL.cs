@@ -8,12 +8,13 @@ using DTO;
 
 namespace DAL
 {
-    public class ChiTietHoaDonDAL
-    {
-		public List<HoaDonThanhToanDTO> GetAllHoaDon()
+	public class ChiTietHoaDonDAL
+	{
+        private QLCuaHangKFCDataContext db = new QLCuaHangKFCDataContext();
+        public List<HoaDonThanhToanDTO> GetAllHoaDon()
 		{
 			// Thay thế chuỗi kết nối của bạn
-			string connectionString = "Data Source=LAPTOP-EDMBMPP4\\SQLEXPRESS;Initial Catalog=QLCuaHangKFC;Integrated Security=True";
+			string connectionString = "Data Source=DESKTOP-1HLJNV7;Initial Catalog=QLCuaHangKFC;Persist Security Info=True;User ID=sa;Password=sa;Encrypt=True;TrustServerCertificate=True";
 
 			List<HoaDonThanhToanDTO> hoaDons = new List<HoaDonThanhToanDTO>();
 
@@ -44,5 +45,14 @@ namespace DAL
 
 			return hoaDons;
 		}
-	}
+
+        public List<ChiTietHoaDonDTO> GetAllChiTietHoaDon()
+        {
+            return db.ChiTietHoaDons.Select(cthd => new ChiTietHoaDonDTO
+            {
+                MaHoaDon = cthd.MaHoaDon,
+				MaMonAn = cthd.MaMonAn
+            }).ToList();
+        }
+    }
 }

@@ -8,3 +8,13 @@ C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNha
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Documents\GitHub\PTUDTM_Project\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\bin\Debug\DAL.dll.config
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\bin\Debug\DAL.dll
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\bin\Debug\DAL.pdb
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\bin\Debug\DTO.dll
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\bin\Debug\DTO.pdb
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\obj\Debug\DAL.dll
+D:\MyCode\C#\FastFood\SOURCE\Winform_QLCuaHangThucAnNhanh\GUI\DAL\obj\Debug\DAL.pdb
